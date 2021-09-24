@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MenuFragment"
+    android:background="@color/color_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/container4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgAddPatient"
+                    android:layout_width="145dp"
+                    android:layout_height="165dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/style_menu"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/new_patient" />
+
+                <ImageView
+                    android:id="@+id/imgAllPatients"
+                    android:layout_width="145dp"
+                    android:layout_height="165dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/style_menu"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/all_patient" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgDrugs"
+                    android:layout_width="145dp"
+                    android:layout_height="165dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/style_menu"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/drugs" />
+
+                <ImageView
+                    android:id="@+id/imgMoney"
+                    android:layout_width="145dp"
+                    android:layout_height="165dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/style_menu"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/money" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgSchedule"
+                    android:layout_width="145dp"
+                    android:layout_height="165dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/style_menu"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/schedule" />
+
+                <ImageView
+                    android:id="@+id/imgNotes"
+                    android:layout_width="145dp"
+                    android:layout_height="165dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/style_menu"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/notes" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

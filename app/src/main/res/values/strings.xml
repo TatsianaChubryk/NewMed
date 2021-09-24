@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">NewMed</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_add_patient">Добавить вызов</string>
+    <string name="btn_all_patient">Все пациенты</string>
+    <string name="btn_drugs">Препараты</string>
+    <string name="btn_money">Заработок</string>
+    <string name="btn_schedule">График работы</string>
+    <string name="name_call">Вызывает</string>
+    <string name="name_patient">Имя пациента</string>
+    <string name="man">М</string>
+    <string name="woman">Ж</string>\
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="age_patient">Возраст</string>
+    <string name="address_patient">Адрес</string>
+    <string name="number_patient">Моб. номер</string>
+    <string name="money">BYN</string>
+    <string name="alcohol">Алкогольная интоксикация</string>
+    <string name="sex">пол:</string>
+    <string name="diseases">Сопутствующие заболевания</string>
+</resources>
