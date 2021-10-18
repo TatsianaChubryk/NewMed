@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_add_patient">Добавить вызов</string>
     <string name="btn_all_patient">Все пациенты</string>
-    <string name="btn_drugs">Препараты</string>
+    <string name="btn_medications">Препараты</string>
     <string name="btn_money">Заработок</string>
     <string name="btn_schedule">График работы</string>
     <string name="name_call">Вызывает</string>
@@ -20,4 +20,12 @@
     <string name="alcohol">Алкогольная интоксикация</string>
     <string name="sex">пол:</string>
     <string name="diseases">Сопутствующие заболевания</string>
+    <string name="btn_add_medicamentatons">Пополнить</string>
+    <string name="cmt">Черепно-мозговая травма</string>
+    <string name="sd">Сахарный диабет</string>
+    <string name="ag">Артериальная гипертензия</string>
+    <string name="ibs">Ишемическая болезнь сердца</string>
+    <string name="aritm">Аритмия</string>
+    <string name="bp">Болезни почек</string>
+    <string name="cp">Цирроз печени</string>
 </resources>

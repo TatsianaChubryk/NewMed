@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
-    tools:context=".fragments.PatientAllFragment">
+    tools:context=".fragments.InfoPatientFragment">
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/patientRecyclerView"
+        android:id="@+id/patientInfoRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -16,6 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_patient" />
+        tools:listitem="@layout/item_info_patient" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

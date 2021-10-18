@@ -30,7 +30,7 @@ class MenuFragment : Fragment(), View.OnClickListener {
 
         binding?.imgAddPatient?.setOnClickListener(this)
         binding?.imgAllPatients?.setOnClickListener(this)
-        binding?.imgDrugs?.setOnClickListener(this)
+        binding?.imgMedications?.setOnClickListener(this)
         binding?.imgMoney?.setOnClickListener(this)
         binding?.imgSchedule?.setOnClickListener(this)
         binding?.imgNotes?.setOnClickListener(this)
@@ -42,11 +42,13 @@ class MenuFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        //imgClick()
+
         activity?.let {
             val fragment = when (v) {
                 binding?.imgAddPatient -> AddPatientFragment()
-                binding?.imgAllPatients -> AllPatientFragment()
+                binding?.imgAllPatients -> PatientAllFragment()
+                binding?.imgSchedule -> SheduleFragment()
+                binding?.imgMedications -> RemedyFragment()
                 else -> null
             }
 
@@ -69,7 +71,7 @@ class MenuFragment : Fragment(), View.OnClickListener {
         binding?.container4?.clipToOutline = true
         binding?.imgAddPatient?.clipToOutline = true
         binding?.imgAllPatients?.clipToOutline = true
-        binding?.imgDrugs?.clipToOutline = true
+        binding?.imgMedications?.clipToOutline = true
         binding?.imgMoney?.clipToOutline = true
         binding?.imgSchedule?.clipToOutline = true
         binding?.imgNotes?.clipToOutline = true
