@@ -35,7 +35,10 @@ data class PatientEntity(
     val numberPatient: String,
 
     @ColumnInfo(name = COLUMN_PRICEPATIENT)
-    val pricePatient: String
+    val pricePatient: String,
+
+    @ColumnInfo(name = COLUMN_ADPATIENT)
+    val adPatient: String,
 ) {
     companion object {
         const val TABLE_NAME = "patient_table"
@@ -48,6 +51,7 @@ data class PatientEntity(
         const val COLUMN_AGEPATIENT = "agePatient"
         const val COLUMN_NUMBERPATIENT = "numberPatient"
         const val COLUMN_PRICEPATIENT = "pricePatient"
+        const val COLUMN_ADPATIENT = "adPatient"
     }
 }
 
@@ -63,7 +67,8 @@ fun List<PatientEntity>.asDomainModel(): List<PatientModel> {
             namePatient = it.namePatient,
             agePatient = it.agePatient,
             numberPatient = it.numberPatient,
-            pricePatient = it.pricePatient
+            pricePatient = it.pricePatient,
+            adPatient = it.adPatient
         )
     }
 }

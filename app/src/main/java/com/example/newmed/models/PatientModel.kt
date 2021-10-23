@@ -14,5 +14,6 @@ data class PatientModel (
     val namePatient: String,
     val agePatient: String,
     val numberPatient: String,
-    val pricePatient: String
+    val pricePatient: String,
+    val adPatient: String
 ): Parcelable

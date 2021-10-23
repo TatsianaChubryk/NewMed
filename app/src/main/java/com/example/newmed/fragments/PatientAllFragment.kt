@@ -5,14 +5,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.graphics.green
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
 import com.example.newmed.R
 import com.example.newmed.adapter.PatientListAdapter
 import com.example.newmed.adapter.PatientListener
 import com.example.newmed.databinding.FragmentPatientListBinding
+import com.example.newmed.models.PatientModel
 import com.example.newmed.models.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
 
@@ -40,13 +45,21 @@ class PatientAllFragment : Fragment() {
 
 
         adapter = PatientListAdapter(PatientListener {
-
             //передать переход на доп инфу о пациенте
 
-            activity?.supportFragmentManager
+
+           // InfoPatientFragment.newInstance(patientId = it.id)
+
+            //Toast.makeText(context, "" + it.namePatient, Toast.LENGTH_SHORT).show()
+
+            val args = Bundle()
+            args.putInt("patientId", it.id)
+
+          activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.frame, InfoPatientFragment())
+                ?.replace(R.id.frame, InfoPatientFragment.newInstance(patientId = it.id))
                 ?.commit()
+
         })
 
         binding.patientRecyclerView.adapter = adapter
@@ -54,6 +67,5 @@ class PatientAllFragment : Fragment() {
         patientViewModel.allPatient.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-
     }
 }

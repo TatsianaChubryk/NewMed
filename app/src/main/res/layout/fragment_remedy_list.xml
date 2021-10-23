@@ -15,7 +15,7 @@
         android:layout_weight="2"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-
+        android:foregroundGravity="center"
         android:divider="@color/black"
         android:dividerHeight="1px"
         tools:ignore="MissingConstraints"
@@ -33,19 +33,7 @@
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnSaveMedications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_save"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+<!--
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -55,7 +43,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/remedyRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:visibility="visible">
 
         <EditText
             android:id="@+id/etRemedy"
@@ -87,5 +76,7 @@
             android:layout_marginTop="5dp"
             android:text="add" />
 
-    </LinearLayout>
+            </LinearLayout>-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

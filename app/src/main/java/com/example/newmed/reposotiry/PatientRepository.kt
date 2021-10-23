@@ -22,7 +22,8 @@ class PatientRepository(private val patientDao: PatientDao) {
         namePatient: String,
         agePatient: String,
         numberPatient: String,
-        pricePatient: String
+        pricePatient: String,
+        adPatient: String
     ) {
         return patientDao.insert(PatientEntity(
             id = 0,
@@ -33,11 +34,15 @@ class PatientRepository(private val patientDao: PatientDao) {
             namePatient = namePatient,
             agePatient = agePatient,
             numberPatient = numberPatient,
-            pricePatient = pricePatient
+            pricePatient = pricePatient,
+            adPatient = adPatient
         ))}
 
+    //вернет пациента по его id
+    suspend fun getPatientById(id: Int) = patientDao.getPatientById(id)
+
     //удалит patient из БД по его id
-    //suspend fun deletePatientById(id: Int) = patientDao.deletePatientById(id)
+   // suspend fun deletePatientById(id: Int) = patientDao.deletePatientById(id)
 }
 
 class PatientViewModelFactory(private val repository: PatientRepository) : ViewModelProvider.Factory {

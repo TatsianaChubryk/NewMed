@@ -8,7 +8,7 @@
     <string name="btn_money">Заработок</string>
     <string name="btn_schedule">График работы</string>
     <string name="name_call">Вызывает</string>
-    <string name="name_patient">Имя пациента</string>
+    <string name="name_patient">имя пациента</string>
     <string name="man">М</string>
     <string name="woman">Ж</string>\
     <string name="yes">Да</string>
@@ -28,4 +28,12 @@
     <string name="aritm">Аритмия</string>
     <string name="bp">Болезни почек</string>
     <string name="cp">Цирроз печени</string>
+    <string name="inf_patient">Информация о пациенте</string>
+    <string name="inf">Информация о лечении</string>
+    <string name="number_call">моб.тел.:</string>
+    <string name="diagnosis">диагноз:</string>
+    <string name="diagnosis_case">сопутствующие заболевания:</string>
+    <string name="inf_treatment">Информация о лечении:</string>
+    <string name="ad">а/д:</string>
+    <string name="pulse">пульс:</string>
 </resources>

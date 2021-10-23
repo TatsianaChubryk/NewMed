@@ -3,25 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/color_background"
-    android:padding="8dp">
+    android:layout_height="wrap_content">
 
-   <RelativeLayout
+    <RelativeLayout
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/white"
-
+        android:dividerHeight="1px"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-       android:divider="@color/black"
-       android:dividerHeight="1px"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -30,31 +25,44 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="24dp"
             android:layout_weight="1"
             android:textColor="@color/black"
             android:textSize="18sp"
-            tools:text="Название препарата"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:text="Название препарата" />
 
-    <TextView
-        android:id="@+id/tvAmountRemedy"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:layout_weight="1"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:text="56" />
+        <TextView
+            android:id="@+id/tvAmountRemedy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:text="56" />
 
-  </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/grey"
+            app:layout_constraintBaseline_toBottomOf="@id/tvRemedy"
+            app:layout_constraintEnd_toStartOf="parent"
+            tools:layout_editor_absoluteY="58dp" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

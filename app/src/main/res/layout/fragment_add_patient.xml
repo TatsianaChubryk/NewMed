@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
     tools:context=".fragments.AddPatientFragment">
 
@@ -179,43 +179,6 @@
                         android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/tvSexPatient"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/etNamePatient"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_toEndOf="@+id/etAgePatient"
-                    android:text="@string/sex"
-                    android:textColor="@color/grey" />
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbMan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_below="@+id/etNamePatient"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_toEndOf="@+id/tvSexPatient"
-                    android:checked="true"
-                    android:text="@string/man"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:theme="@style/MyCheckBox" />
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbWoman"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_below="@+id/etNamePatient"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="46dp"
-                    android:layout_toEndOf="@+id/tvSexPatient"
-                    android:text="@string/woman"
-                    android:textSize="12sp"
-                    android:theme="@style/MyCheckBox" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbAlcohol"

@@ -17,11 +17,13 @@ class RemedyRepository(private val remedyDao: RemedyDao) {
     suspend fun addRemedy(
         nameRemedy: String,
         amountRemedy: Int
+       // augmentRemedy: Int
     ){
         return remedyDao.insert(RemedyEntity(
             id = 0,
             nameRemedy = nameRemedy,
             amountRemedy = amountRemedy
+            //augmentRemedy = augmentRemedy
         ))}
 }
 

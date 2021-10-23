@@ -1,9 +1,7 @@
 package com.example.newmed.models
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.newmed.database.PatientEntity
 import com.example.newmed.reposotiry.PatientRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -11,6 +9,9 @@ import kotlinx.coroutines.launch
 class PatientViewModel(private val repository: PatientRepository): ViewModel() {
 
     val allPatient: LiveData<List<PatientModel>> = repository.getAllPatient().asLiveData()
+
+    private val _patient = MutableLiveData<PatientEntity>()
+    val patient: LiveData<PatientEntity> = _patient
 
     //добавление пациента в БД
     fun addPatient(
@@ -22,7 +23,8 @@ class PatientViewModel(private val repository: PatientRepository): ViewModel() {
         namePatient: String,
         agePatient: String,
         numberPatient: String,
-        pricePatient: String
+        pricePatient: String,
+        adPatient: String
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addPatient(
@@ -34,7 +36,15 @@ class PatientViewModel(private val repository: PatientRepository): ViewModel() {
                 namePatient = namePatient,
                 agePatient = agePatient,
                 numberPatient = numberPatient,
-                pricePatient = pricePatient
+                pricePatient = pricePatient,
+                adPatient = adPatient
             )}
+    }
+
+    fun getPatientById(id: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            _patient.postValue(repository.getPatientById(id))
+        }
+
     }
 }

@@ -18,6 +18,11 @@ interface PatientDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(patient: PatientEntity)
 
+    //получает пациента по id
+    @Query("SELECT * FROM $TABLE_NAME" +
+            " WHERE ${PatientEntity.COLUMN_ID} = :id")
+    suspend fun getPatientById(id: Int): PatientEntity
+
     @Query("DELETE FROM $TABLE_NAME" +
             " WHERE ${PatientEntity.COLUMN_ID} = :id")
     suspend fun deletePatientById(id: Int)

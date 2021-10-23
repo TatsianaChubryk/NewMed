@@ -18,12 +18,16 @@ data class RemedyEntity(
 
     @ColumnInfo(name = COLUMN_AMOUNTREMEDY)
     val amountRemedy: Int,
+
+    /*@ColumnInfo(name = COLUMN_AUGMENTREMEDY)
+    val augmentRemedy: Int*/
 ) {
     companion object {
         const val TABLE_NAME = "remedy_table"
         const val COLUMN_ID = "id"
         const val COLUMN_NAMEREMEDY = "nameRemedy"
         const val COLUMN_AMOUNTREMEDY = "amountRemedy"
+       // const val COLUMN_AUGMENTREMEDY = "augmentRemedy"
     }
 }
 
@@ -33,7 +37,8 @@ fun List<RemedyEntity>.asDomainModel(): List<RemedyModel> {
         RemedyModel(
             id = it.id,
             nameRemedy = it.nameRemedy,
-            amountRemedy = it.amountRemedy,
+            amountRemedy = it.amountRemedy
+           // augmentRemedy = it.augmentRemedy
         )
     }
 }

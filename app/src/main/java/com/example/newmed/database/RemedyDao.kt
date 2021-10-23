@@ -18,6 +18,10 @@ interface RemedyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(remedy: RemedyEntity)
 
+   /* @Update("UPDATE * FROM $TABLE_NAME" +
+    "WHERE ${RemedyEntity.COLUMN_ID} = :id")
+    suspend fun updateRemedeById(id: Int): RemedyEntity*/
+
   /*  //удаляет препалат из БД
     @Query("DELETE FROM ${PatientEntity.TABLE_NAME}" +
             " WHERE ${PatientEntity.COLUMN_ID} = :id")

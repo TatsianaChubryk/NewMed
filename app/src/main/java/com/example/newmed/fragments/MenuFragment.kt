@@ -48,6 +48,7 @@ class MenuFragment : Fragment(), View.OnClickListener {
                 binding?.imgAddPatient -> AddPatientFragment()
                 binding?.imgAllPatients -> PatientAllFragment()
                 binding?.imgSchedule -> SheduleFragment()
+                binding?.imgMoney -> PriceFragment()
                 binding?.imgMedications -> RemedyFragment()
                 else -> null
             }

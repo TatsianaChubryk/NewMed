@@ -1,6 +1,7 @@
 package com.example.newmed.fragments
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,16 +36,13 @@ class AddPatientFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //дата
-        val formatter = SimpleDateFormat("dd.MM.yy")
-        val date = Calendar.getInstance().time
-        val timeString = formatter.format(date)
-            //DateFormat.getDateTimeInstance(3, 3).format(Date())
-        binding.tvData.setText(timeString).toString()
+        val price = "165"
+        val etPrice = binding.etPricePatient.editText
+        etPrice?.text = Editable.Factory.getInstance().newEditable(price)
 
+        dateFormat() //дата формат
         isCheckedCheckBox() //переключатель для чекбоксов
         isCheckedSwitch() //переключатель switch
-
 
         binding.btnAddPatient.setOnClickListener {
 
@@ -56,11 +54,18 @@ class AddPatientFragment : Fragment() {
                 binding.etNamePatient.editText?.text.toString(),
                 binding.etAgePatient.editText?.text.toString(),
                 binding.etNumberPatient.editText?.text.toString(),
-                binding.etPricePatient.editText?.text.toString()
+                binding.etPricePatient.editText?.text.toString(),
+                binding.etNumberCall.editText?.text.toString()
             )
-            //Toast.makeText(context, id.toString(), Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
         }
+    }
+
+    private fun dateFormat() {
+        val formatter = SimpleDateFormat("dd.MM.yy")
+        val date = Calendar.getInstance().time
+        val timeString = formatter.format(date)
+        binding.tvData.setText(timeString).toString()
     }
 
     private fun isCheckedSwitch() {
@@ -75,18 +80,6 @@ class AddPatientFragment : Fragment() {
     }
 
     private fun isCheckedCheckBox() {
-        binding.cbWoman.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                binding.cbMan.isChecked = false
-            }
-        }
-
-        binding.cbMan.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                binding.cbWoman.isChecked = false
-            }
-        }
-
         binding.cbAlcohol.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.cbDrug.isChecked = false

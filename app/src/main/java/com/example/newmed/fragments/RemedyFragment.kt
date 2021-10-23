@@ -12,6 +12,8 @@ import com.example.newmed.adapter.RemedyListener
 import com.example.newmed.databinding.FragmentRemedyListBinding
 import com.example.newmed.models.RemedyViewModel
 import com.example.newmed.reposotiry.RemedyViewModelFactory
+import kotlinx.android.synthetic.main.fragment_info_patient.view.*
+import kotlinx.android.synthetic.main.item_remedy.*
 
 class RemedyFragment : Fragment() {
 
@@ -39,33 +41,10 @@ class RemedyFragment : Fragment() {
 
         })
 
-                //сохранение в БД
-            binding.btnAddRemedy.setOnClickListener {
-                remedyViewModel.addRemedy(
-                    binding.etRemedy.text.toString(),
-                    binding.etAmountRemedy.text.toString().toInt(),
-                )
-            }
-
         //отображение из БД
         binding.remedyRecyclerView.adapter = adapter
         remedyViewModel.allRemedy.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-
-/*
-        //появление кнопки созранить
-        binding.btnAddMedications.setOnClickListener {
-            binding.btnSaveMedications.isVisible = true
-
-             //дописать возможность редактирования кол-ва
-        }
-
-
-        //скрытие кнопки сохранить после ее нажатия
-        binding.btnSaveMedications.setOnClickListener {
-            binding.btnSaveMedications.isVisible = false
-
-            //дописать сохранение внесенных изменений в кол-во*/
     }
 }

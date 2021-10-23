@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.newmed.reposotiry.RemedyRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.ZoneId
 
 class RemedyViewModel(private val repositoryRemedy: RemedyRepository): ViewModel() {
 
@@ -16,11 +17,13 @@ class RemedyViewModel(private val repositoryRemedy: RemedyRepository): ViewModel
     fun addRemedy(
         nameRemedy: String,
         amountRemedy: Int
+        //augmentRemedy: Int
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             repositoryRemedy.addRemedy(
                 nameRemedy = nameRemedy,
                 amountRemedy = amountRemedy
+                //augmentRemedy = augmentRemedy
             )}
     }
 }
