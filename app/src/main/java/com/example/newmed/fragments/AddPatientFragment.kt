@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
-import com.example.newmed.models.PatientViewModel
+import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.databinding.FragmentAddPatientBinding
 import com.example.newmed.reposotiry.PatientViewModelFactory
 import java.text.SimpleDateFormat
@@ -55,7 +55,15 @@ class AddPatientFragment : Fragment() {
                 binding.etAgePatient.editText?.text.toString(),
                 binding.etNumberPatient.editText?.text.toString(),
                 binding.etPricePatient.editText?.text.toString(),
-                binding.etNumberCall.editText?.text.toString()
+                binding.cbAlcohol.isChecked,
+                binding.cbTraumaticBrain.isChecked,
+                binding.cbDiabetes.isChecked,
+                binding.cbHypertension.isChecked,
+                binding.cbIschemia.isChecked,
+                binding.cbArrhythmia.isChecked,
+                binding.cbGemma.isChecked,
+                binding.cbCirrhosis.isChecked,
+                binding.tvPulse.text.toString()
             )
             activity?.onBackPressed()
         }

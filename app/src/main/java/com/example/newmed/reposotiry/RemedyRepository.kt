@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.newmed.database.RemedyDao
 import com.example.newmed.database.RemedyEntity
 import com.example.newmed.database.asDomainModel
-import com.example.newmed.models.RemedyViewModel
+import com.example.newmed.viewmodel.RemedyViewModel
 import kotlinx.coroutines.flow.map
 
 class RemedyRepository(private val remedyDao: RemedyDao) {
@@ -17,17 +17,26 @@ class RemedyRepository(private val remedyDao: RemedyDao) {
     suspend fun addRemedy(
         nameRemedy: String,
         amountRemedy: Int
-       // augmentRemedy: Int
-    ){
-        return remedyDao.insert(RemedyEntity(
-            id = 0,
-            nameRemedy = nameRemedy,
-            amountRemedy = amountRemedy
-            //augmentRemedy = augmentRemedy
-        ))}
+        // augmentRemedy: Int
+    ) {
+        return remedyDao.insert(
+            RemedyEntity(
+                id = 0,
+                nameRemedy = nameRemedy,
+                amountRemedy = amountRemedy
+                //augmentRemedy = augmentRemedy
+            )
+        )
+    }
+
+    //обновит данные по кол-ву
+    suspend fun updateAmountRemedy(id: Int, amountRemedy: Int) {
+        remedyDao.updateAmountRemedy(id, amountRemedy)
+    }
 }
 
-class RemedyViewModelFactory(private val repositoryRemedy: RemedyRepository) : ViewModelProvider.Factory {
+class RemedyViewModelFactory(private val repositoryRemedy: RemedyRepository) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RemedyViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

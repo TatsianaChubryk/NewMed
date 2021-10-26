@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.newmed.database.RemedyEntity.Companion.TABLE_NAME
-import com.example.newmed.models.RemedyModel
+import com.example.newmed.model.RemedyModel
 
 @Entity(tableName = TABLE_NAME)
 data class RemedyEntity(
@@ -17,17 +17,13 @@ data class RemedyEntity(
     val nameRemedy: String,
 
     @ColumnInfo(name = COLUMN_AMOUNTREMEDY)
-    val amountRemedy: Int,
-
-    /*@ColumnInfo(name = COLUMN_AUGMENTREMEDY)
-    val augmentRemedy: Int*/
+    val amountRemedy: Int
 ) {
     companion object {
         const val TABLE_NAME = "remedy_table"
         const val COLUMN_ID = "id"
         const val COLUMN_NAMEREMEDY = "nameRemedy"
         const val COLUMN_AMOUNTREMEDY = "amountRemedy"
-       // const val COLUMN_AUGMENTREMEDY = "augmentRemedy"
     }
 }
 

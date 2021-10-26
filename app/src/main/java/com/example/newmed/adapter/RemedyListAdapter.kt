@@ -1,12 +1,13 @@
 package com.example.newmed.adapter
 
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.databinding.ItemRemedyBinding
-import com.example.newmed.models.RemedyModel
+import com.example.newmed.model.RemedyModel
 
 class RemedyListAdapter(
     private val clickListener: RemedyListener
@@ -20,6 +21,7 @@ class RemedyListAdapter(
             binding.apply {
                 tvRemedy.text = remedyModel.nameRemedy
                 tvAmountRemedy.text = remedyModel.amountRemedy.toString()
+                etAmount.text = Editable.Factory.getInstance().newEditable(remedyModel.amountRemedy.toString())
                 root.setOnClickListener {
                     clickListener.onClickRemedy(remedyModel)
                 }

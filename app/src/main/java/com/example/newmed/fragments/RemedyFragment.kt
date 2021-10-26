@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
 import com.example.newmed.adapter.RemedyListAdapter
 import com.example.newmed.adapter.RemedyListener
 import com.example.newmed.databinding.FragmentRemedyListBinding
-import com.example.newmed.models.RemedyViewModel
+import com.example.newmed.viewmodel.RemedyViewModel
 import com.example.newmed.reposotiry.RemedyViewModelFactory
-import kotlinx.android.synthetic.main.fragment_info_patient.view.*
-import kotlinx.android.synthetic.main.item_remedy.*
+import kotlinx.android.synthetic.main.item_remedy.view.*
 
 class RemedyFragment : Fragment() {
 
@@ -41,10 +41,24 @@ class RemedyFragment : Fragment() {
 
         })
 
+        binding.btnAddRemedy.setOnClickListener {
+            remedyViewModel.addRemedy(
+                binding.etRemedy.text.toString(),
+                binding.etAmountRemedy.text.toString().toInt()
+            )
+        }
+
+        binding.add.setOnClickListener {
+            remedyViewModel.updateAmountRemedy()
+        }
+
+
         //отображение из БД
         binding.remedyRecyclerView.adapter = adapter
         remedyViewModel.allRemedy.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
+
+
     }
 }

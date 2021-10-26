@@ -44,12 +44,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="13dp"
-        android:layout_toEndOf="@+id/tvData"
         android:gravity="center"
         android:text="АлексейЧубр"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/tvData"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

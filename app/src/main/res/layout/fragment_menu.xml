@@ -33,7 +33,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/style_menu"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/new_patient" />
+                    android:src="@drawable/new_patient"/>
 
                 <ImageView
                     android:id="@+id/imgAllPatients"

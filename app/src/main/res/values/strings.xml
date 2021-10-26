@@ -8,7 +8,8 @@
     <string name="btn_money">Заработок</string>
     <string name="btn_schedule">График работы</string>
     <string name="name_call">Вызывает</string>
-    <string name="name_patient">имя пациента</string>
+    <string name="name_patient">Имя пациента</string>
+    <string name="name">имя пациента</string>
     <string name="man">М</string>
     <string name="woman">Ж</string>\
     <string name="yes">Да</string>

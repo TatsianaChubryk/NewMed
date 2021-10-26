@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newmed.models.PatientModel
+import com.example.newmed.model.PatientModel
 import com.example.newmed.databinding.ItemPatientBinding
 
 class PatientListAdapter(
@@ -18,7 +18,6 @@ class PatientListAdapter(
         //связываются данные и берутся откуда ввели, чтоб вставить куда надо
         fun bind(patientModel: PatientModel, clickListener: PatientListener) {
             binding.apply {
-                tvID.text = patientModel.namePatient
                 tvData.text = patientModel.date
                 tvNameCall.text = patientModel.nameCall
                 tvNumberCall.text = patientModel.numberCall

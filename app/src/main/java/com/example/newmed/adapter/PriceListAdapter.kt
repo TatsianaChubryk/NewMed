@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.databinding.ItemPriceBinding
-import com.example.newmed.models.PatientModel
+import com.example.newmed.model.PatientModel
 
 class PriceListAdapter (
     private val clickListener: PriceListener

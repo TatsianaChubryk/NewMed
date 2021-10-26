@@ -57,6 +57,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/line3"
                 tools:ignore="MissingConstraints">
 
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnSaveInfoPatient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="9dp"
+                    android:src="@drawable/ic_add" />
+
                 <TextView
                     android:id="@+id/textNP"
                     android:layout_width="49dp"
@@ -66,7 +74,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="@string/name_patient"
+                    android:text="@string/name"
                     android:textColor="@color/grey"
                     android:textSize="10sp" />
 
@@ -148,7 +156,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_toEndOf="@+id/textD"
                     android:gravity="center"
-                    android:text="Алкогольная интоксикация"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -166,7 +174,7 @@
                     android:textSize="10sp" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbOne"
+                    android:id="@+id/cbTraumaticBrain"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_below="@+id/textZ"
@@ -179,10 +187,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbTwo"
+                    android:id="@+id/cbDiabetes"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/cbOne"
+                    android:layout_below="@+id/cbTraumaticBrain"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -192,10 +200,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbThree"
+                    android:id="@+id/cbHypertension"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/cbTwo"
+                    android:layout_below="@+id/cbDiabetes"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -205,10 +213,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbFour"
+                    android:id="@+id/cbIschemia"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/cbThree"
+                    android:layout_below="@+id/cbHypertension"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -218,10 +226,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbFive"
+                    android:id="@+id/cbArrhythmia"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/cbFour"
+                    android:layout_below="@+id/cbIschemia"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -231,10 +239,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbSix"
+                    android:id="@+id/cbGemma"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/cbFive"
+                    android:layout_below="@+id/cbArrhythmia"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -244,10 +252,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbSeven"
+                    android:id="@+id/cbCirrhosis"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/cbSix"
+                    android:layout_below="@+id/cbGemma"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -294,7 +302,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="0dp"
-                    android:src="@drawable/ic_edit" />\
+                    android:src="@drawable/ic_edit" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btnSave"
@@ -305,7 +313,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="0dp"
                     android:src="@drawable/ic_add"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
@@ -327,7 +335,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/line4"
                 tools:ignore="MissingConstraints">
 
-                <TextView
+               <!-- <TextView
                     android:id="@+id/textAd"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
@@ -368,7 +376,6 @@
                     android:layout_marginTop="15dp"
                     android:layout_toEndOf="@+id/textAd"
                     android:gravity="center"
-                    android:hint="@string/age_patient"
                     android:textColorHint="@color/grey"
                     android:textSize="16sp"
                     android:visibility="invisible"
@@ -412,13 +419,18 @@
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="dc"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/remedyRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/etAd"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dp"
@@ -433,8 +445,6 @@
                     tools:ignore="MissingConstraints"
                     tools:itemCount="100"
                     tools:listitem="@layout/item_remedy_patient" />
-
-
             </RelativeLayout>
 
 

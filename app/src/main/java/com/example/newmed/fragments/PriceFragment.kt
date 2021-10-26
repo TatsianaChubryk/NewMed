@@ -10,8 +10,9 @@ import com.example.newmed.PatientApplication
 import com.example.newmed.adapter.PriceListAdapter
 import com.example.newmed.adapter.PriceListener
 import com.example.newmed.databinding.FragmentPriceBinding
-import com.example.newmed.models.PatientViewModel
+import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
+import com.example.newmed.viewmodel.PriceViewModel
 
 class PriceFragment : Fragment() {
 
@@ -20,6 +21,8 @@ class PriceFragment : Fragment() {
     private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory((activity?.application as PatientApplication).repository)
     }
+
+    private val priceViewModel: PriceViewModel by viewModels()
 
     private lateinit var adapter: PriceListAdapter
 
@@ -36,6 +39,13 @@ class PriceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val tvExchange = binding.tvExchange
+        priceViewModel.getExchange()
+        priceViewModel.exchangeLiveData.observe(viewLifecycleOwner, {
+
+            tvExchange.text = it.first().USD_out
+        })
 
         adapter = PriceListAdapter(PriceListener {
 

@@ -1,4 +1,4 @@
-package com.example.newmed.models
+package com.example.newmed.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
