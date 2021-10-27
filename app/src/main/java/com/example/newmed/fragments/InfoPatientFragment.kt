@@ -91,8 +91,6 @@ class InfoPatientFragment : Fragment() {
             binding.cbGemma.isChecked = it.gemma
 
             binding.cbCirrhosis.isChecked = it.cirrhosis
-
-
         }
         adapter = RemedyListAdapter(RemedyListener {
 

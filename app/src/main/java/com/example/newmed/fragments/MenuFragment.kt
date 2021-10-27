@@ -50,6 +50,7 @@ class MenuFragment : Fragment(), View.OnClickListener {
                 binding?.imgSchedule -> SheduleFragment()
                 binding?.imgMoney -> PriceFragment()
                 binding?.imgMedications -> RemedyFragment()
+                binding?.imgNotes -> MapsFragment()
                 else -> null
             }
 

@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newmed.server.ApiExchange
-import com.example.newmed.server.Exchange
 import com.example.newmed.server.ExchangeItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -1,6 +1,10 @@
 package com.example.newmed.fragments
 
+import android.graphics.drawable.AnimatedVectorDrawable
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,18 +37,16 @@ class PriceFragment : Fragment() {
     ): View {
         binding = FragmentPriceBinding.inflate(inflater, container, false)
         return binding.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tvExchange = binding.tvExchange
+        //val tvExchange = binding.tvExchange
         priceViewModel.getExchange()
         priceViewModel.exchangeLiveData.observe(viewLifecycleOwner, {
-
-            tvExchange.text = it.first().USD_out
+            //Log.e("price", it.joinToString())
+            binding.tvExchange.text = it.first().USD_out
         })
 
         adapter = PriceListAdapter(PriceListener {
