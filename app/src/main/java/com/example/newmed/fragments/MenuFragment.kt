@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.commit
+import com.example.newmed.MapsFragment
 import com.example.newmed.R
 import com.example.newmed.databinding.FragmentMenuBinding
 

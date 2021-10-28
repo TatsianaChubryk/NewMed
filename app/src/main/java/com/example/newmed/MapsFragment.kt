@@ -1,4 +1,4 @@
-package com.example.newmed.fragments
+package com.example.newmed
 
 import androidx.fragment.app.Fragment
 
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.newmed.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -19,9 +18,9 @@ class MapsFragment : Fragment() {
 
     private val callback = OnMapReadyCallback { googleMap ->
 
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val minsk = LatLng(53.8, 27.5)
+        googleMap.addMarker(MarkerOptions().position(minsk).title("Marker in Minsk"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(minsk))
     }
 
     override fun onCreateView(

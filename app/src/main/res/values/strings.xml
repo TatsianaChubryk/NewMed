@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">NewMed</string>
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_add_patient">Добавить вызов</string>
     <string name="btn_all_patient">Все пациенты</string>
@@ -37,4 +36,7 @@
     <string name="inf_treatment">Информация о лечении:</string>
     <string name="ad">а/д:</string>
     <string name="pulse">пульс:</string>
+    <string name="appwidget_text">Имя</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 </resources>
