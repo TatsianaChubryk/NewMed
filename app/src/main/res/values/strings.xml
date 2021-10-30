@@ -39,4 +39,16 @@
     <string name="appwidget_text">Имя</string>
     <string name="add_widget">Add widget</string>
     <string name="app_widget_description">This is an app widget description</string>
+    <string name="update_info">Информация обновлена</string>
+    <string name="magnia">р-р Магния сульфата 25% 5мл.</string>
+    <string name="ringera">р-р Рингера 250мл.</string>
+    <string name="galoperidol">р-р Галоперидол 0,5% 1мл.</string>
+    <string name="dimedrol">р-р Димедрол 1% 1мл.</string>
+    <string name="fenibut">р-р Фенибута 10мг/мл 100мл.</string>
+    <string name="tiamin">р-р Тиамина хлорид 5% 1мл.</string>
+    <string name="unitiol">р-р Унитиол 5% 5мл.</string>
+    <string name="sonnat">таб. Соннат 7,5мг.</string>
+    <string name="karbazipin">таб. Карбазипин 200мг.</string>
+    <string name="normogidron">пор. Нормогидрон</string>
+    <string name="anaprilin">таб. Анаприлин 10мг.</string>
 </resources>

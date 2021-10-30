@@ -35,7 +35,7 @@ data class PatientEntity(
     val numberPatient: String,
 
     @ColumnInfo(name = COLUMN_PRICEPATIENT)
-    val pricePatient: String,
+    val pricePatient: Int,
 
     @ColumnInfo(name = COLUMN_AlKO)
     val alko: Boolean,
@@ -47,22 +47,52 @@ data class PatientEntity(
     val diabetes: Boolean,
 
     @ColumnInfo(name = COLUMN_HYPERTENSION)
-    val hypertension: Boolean,
+    var hypertension: Boolean,
 
     @ColumnInfo(name = COLUMN_ISHEMIA)
-    val ishemiya: Boolean,
+    var ishemiya: Boolean,
 
     @ColumnInfo(name = COLUMN_ARRHYTMIA)
-    val arrhytmia: Boolean,
+    var arrhytmia: Boolean,
 
     @ColumnInfo(name = COLUMN_GEMMA)
-    val gemma: Boolean,
+    var gemma: Boolean,
 
     @ColumnInfo(name = COLUMN_CIRRHOSIS)
-    val cirrhosis: Boolean,
+    var cirrhosis: Boolean,
 
-    @ColumnInfo(name = COLUMN_PULSE)
-    val pulse: String
+    @ColumnInfo(name = COLUMN_MAGNIA)
+    val magnia: Int,
+
+    @ColumnInfo(name = COLUMN_RINGERA)
+    val ringera: Int,
+
+    @ColumnInfo(name = COLUMN_GALOPERIDOL)
+    val galoperidol: Int,
+
+    @ColumnInfo(name = COLUMN_DIMEDROL)
+    val dimedrol: Int,
+
+    @ColumnInfo(name = COLUMN_FENIBUT)
+    val fenibut: Int,
+
+    @ColumnInfo(name = COLUMN_TIAMIN)
+    val tiamin: Int,
+
+    @ColumnInfo(name = COLUMN_UNITIOL)
+    val unitiol: Int,
+
+    @ColumnInfo(name = COLUMN_SONNAT)
+    val sonnat: Int,
+
+    @ColumnInfo(name = COLUMN_KARBAZIPIN)
+    val karbazipin: Int,
+
+    @ColumnInfo(name = COLUMN_NORMOGIDRON)
+    val normogidron: Int,
+
+    @ColumnInfo(name = COLUMN_ANAPRILIN)
+    val anaprilin: Int,
 ) {
     companion object {
         const val TABLE_NAME = "patient_table"
@@ -83,7 +113,17 @@ data class PatientEntity(
         const val COLUMN_ARRHYTMIA = "arrhytmia"
         const val COLUMN_GEMMA = "gemma"
         const val COLUMN_CIRRHOSIS = "cirrhosis"
-        const val COLUMN_PULSE = "pulse"
+        const val COLUMN_MAGNIA = "magnia"
+        const val COLUMN_RINGERA = "ringera"
+        const val COLUMN_GALOPERIDOL = "galoperidol"
+        const val COLUMN_DIMEDROL = "dimedrol"
+        const val COLUMN_FENIBUT = "fenibut"
+        const val COLUMN_TIAMIN = "tiamin"
+        const val COLUMN_UNITIOL = "unitiol"
+        const val COLUMN_SONNAT = "sonnat"
+        const val COLUMN_KARBAZIPIN = "karbazipin"
+        const val COLUMN_NORMOGIDRON = "normogidron"
+        const val COLUMN_ANAPRILIN = "anaprilin"
     }
 }
 
@@ -108,7 +148,17 @@ fun List<PatientEntity>.asDomainModel(): List<PatientModel> {
             arrhytmia = it.arrhytmia,
             gemma = it.gemma,
             cirrhosis = it.cirrhosis,
-            pulse = it.pulse
+            magnia = it.magnia,
+            ringera = it.ringera,
+            galoperidol = it.galoperidol,
+            dimedrol = it.dimedrol,
+            fenibut = it.fenibut,
+            tiamin = it.tiamin,
+            unitiol = it.unitiol,
+            sonnat = it.sonnat,
+            karbazipin = it.karbazipin,
+            normogidron = it.normogidron,
+            anaprilin = it.anaprilin
         )
     }
 }

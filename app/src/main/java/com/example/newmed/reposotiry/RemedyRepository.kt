@@ -29,9 +29,10 @@ class RemedyRepository(private val remedyDao: RemedyDao) {
         )
     }
 
-    //обновит данные по кол-ву
-    suspend fun updateAmountRemedy(id: Int, amountRemedy: Int) {
-        remedyDao.updateAmountRemedy(id, amountRemedy)
+    suspend fun getRemedyById(id: Int) = remedyDao.getRemedyById(id)
+
+    suspend fun updateRemedy(remedy: RemedyEntity) {
+        remedyDao.updateRemedy(remedy)
     }
 }
 

@@ -34,7 +34,6 @@ fun List<RemedyEntity>.asDomainModel(): List<RemedyModel> {
             id = it.id,
             nameRemedy = it.nameRemedy,
             amountRemedy = it.amountRemedy
-           // augmentRemedy = it.augmentRemedy
         )
     }
 }

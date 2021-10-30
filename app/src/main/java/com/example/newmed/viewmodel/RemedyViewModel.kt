@@ -13,7 +13,7 @@ class RemedyViewModel(private val repositoryRemedy: RemedyRepository) : ViewMode
 
     private val _amount = MutableLiveData<RemedyEntity>()
     val amount: LiveData<RemedyEntity> = _amount
-
+/*
     //добавляет препараты в БД
     fun addRemedy(
         nameRemedy: String,
@@ -25,16 +25,17 @@ class RemedyViewModel(private val repositoryRemedy: RemedyRepository) : ViewMode
                 amountRemedy = amountRemedy
             )
         }
+    }*/
+
+    fun getRemedyById(id: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            _amount.postValue(repositoryRemedy.getRemedyById(id))
+        }
     }
 
-    fun updateAmountRemedy() {
+    fun updateRemedy(remedy: RemedyEntity) {
         viewModelScope.launch(Dispatchers.IO) {
-            val amount = _amount.value
-            amount?.let {
-                repositoryRemedy.updateAmountRemedy(it.id, it.amountRemedy)
-                _amount.postValue(it.copy(amountRemedy = 10))
-
-            }
+            repositoryRemedy.updateRemedy(remedy)
         }
     }
 }

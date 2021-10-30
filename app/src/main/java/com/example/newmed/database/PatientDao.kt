@@ -2,8 +2,10 @@ package com.example.newmed.database
 
 import androidx.room.*
 import com.example.newmed.database.PatientEntity.Companion.COLUMN_BRAIN
+import com.example.newmed.database.PatientEntity.Companion.COLUMN_CIRRHOSIS
 import com.example.newmed.database.PatientEntity.Companion.COLUMN_DIABETES
 import com.example.newmed.database.PatientEntity.Companion.COLUMN_ID
+import com.example.newmed.database.PatientEntity.Companion.COLUMN_NAMEPATIENT
 import com.example.newmed.database.PatientEntity.Companion.TABLE_NAME
 import kotlinx.coroutines.flow.Flow
 
@@ -19,6 +21,6 @@ interface PatientDao {
     @Query("SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = :id")
     suspend fun getPatientById(id: Int): PatientEntity
 
-    @Query("UPDATE $TABLE_NAME SET $COLUMN_BRAIN = :brain, $COLUMN_DIABETES = :diabetes WHERE $COLUMN_ID = :patientId")
-    suspend fun updateInfoPatient(patientId: Int, brain: Boolean, diabetes: Boolean)
+    @Update
+    suspend fun updatePatient(patient: PatientEntity)
 }

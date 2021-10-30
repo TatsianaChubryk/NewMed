@@ -23,38 +23,39 @@
             tools:ignore="MissingConstraints">
     -->
 
-   <!-- <TextView
+    <TextView
         android:id="@+id/tvData"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="20.09.21"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvNameCall"
         android:layout_width="140dp"
         android:layout_height="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="АлексейЧубр"
         android:textColor="@color/black"
         android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvData"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/tvNameCall"
         android:gravity="center"
@@ -67,11 +68,13 @@
         android:id="@+id/tvPriceD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:layout_toEndOf="@+id/tvNameCall"
+        android:layout_toEndOf="@+id/tvPrice"
         android:gravity="center"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvPrice"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -22,7 +22,7 @@ class PatientRepository(private val patientDao: PatientDao) {
         namePatient: String,
         agePatient: String,
         numberPatient: String,
-        pricePatient: String,
+        pricePatient: Int,
         alko: Boolean,
         traumaticBrain: Boolean,
         diabetes: Boolean,
@@ -31,7 +31,17 @@ class PatientRepository(private val patientDao: PatientDao) {
         arrhytmia: Boolean,
         gemma: Boolean,
         cirrhosis: Boolean,
-        pulse: String
+        magnia: Int,
+        ringera: Int,
+        galoperidol: Int,
+        dimedrol: Int,
+        fenibut: Int,
+        tiamin: Int,
+        unitiol: Int,
+        sonnat: Int,
+        karbazipin: Int,
+        normogidron: Int,
+        anaprilin: Int
     ) {
         return patientDao.insert(
             PatientEntity(
@@ -52,15 +62,25 @@ class PatientRepository(private val patientDao: PatientDao) {
                 arrhytmia = arrhytmia,
                 gemma = gemma,
                 cirrhosis = cirrhosis,
-                pulse = pulse
+                magnia = magnia,
+                ringera = ringera,
+                galoperidol = galoperidol,
+                dimedrol = dimedrol,
+                fenibut = fenibut,
+                tiamin = tiamin,
+                unitiol = unitiol,
+                sonnat = sonnat,
+                karbazipin = karbazipin,
+                normogidron = normogidron,
+                anaprilin = anaprilin
             )
         )
     }
 
     suspend fun getPatientById(id: Int) = patientDao.getPatientById(id)
 
-    suspend fun updateInfoPatient(patientId: Int, brain: Boolean, diabetes: Boolean) {
-        patientDao.updateInfoPatient(patientId, brain, diabetes)
+    suspend fun updatePatient(paient: PatientEntity) {
+        patientDao.updatePatient(paient)
     }
 }
 

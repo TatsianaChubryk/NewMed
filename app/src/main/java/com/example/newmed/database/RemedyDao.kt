@@ -14,6 +14,9 @@ interface RemedyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(remedy: RemedyEntity)
 
-    @Query("UPDATE $TABLE_NAME SET $COLUMN_AMOUNTREMEDY = :amountRemedy WHERE ${RemedyEntity.COLUMN_ID} = :id")
-    suspend fun updateAmountRemedy(id: Int, amountRemedy: Int)
+    @Query("SELECT * FROM $TABLE_NAME WHERE ${RemedyEntity.COLUMN_ID} = :id")
+    suspend fun getRemedyById(id: Int): RemedyEntity
+
+    @Update
+    suspend fun updateRemedy(remedy: RemedyEntity)
 }

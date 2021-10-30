@@ -13,7 +13,7 @@ data class PatientModel (
     val namePatient: String,
     val agePatient: String,
     val numberPatient: String,
-    val pricePatient: String,
+    val pricePatient: Int,
     val alko: Boolean,
     val traumaticBrain: Boolean,
     val diabetes: Boolean,
@@ -22,5 +22,15 @@ data class PatientModel (
     val arrhytmia: Boolean,
     val gemma: Boolean,
     val cirrhosis: Boolean,
-    val pulse: String
+    val magnia: Int,
+    val ringera: Int,
+    val galoperidol: Int,
+    val dimedrol: Int,
+    val fenibut: Int,
+    val tiamin: Int,
+    val unitiol: Int,
+    val sonnat: Int,
+    val karbazipin: Int,
+    val normogidron: Int,
+    val anaprilin: Int
 ): Parcelable

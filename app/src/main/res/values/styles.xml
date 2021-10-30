@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="MyTextView">MyTextView
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="MyCheckBox">MyCheckBox
         <item name="colorControlNormal">@android:color/holo_green_light</item>
         <item name="colorControlActivated">@android:color/holo_orange_dark</item>

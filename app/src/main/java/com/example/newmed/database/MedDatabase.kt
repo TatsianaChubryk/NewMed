@@ -8,10 +8,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 @Database(
     entities = [PatientEntity::class, RemedyEntity::class],
-    version = 17,
+    version = 21,
     exportSchema = true
 )
 
@@ -53,7 +54,7 @@ abstract class MedDatabase : RoomDatabase() {
 
         private suspend fun remedyDatabase(remedyDao: RemedyDao) {
 
-            var remedy = RemedyEntity(1, "р-р Магния сульфата 25% 5мл.", 10)
+            var remedy = RemedyEntity(1, "р-р Магния сульфата 25% 5мл.", 0)
             remedyDao.insert(remedy)
             remedy = RemedyEntity(2, "р-р Рингера 250мл.", 0)
             remedyDao.insert(remedy)

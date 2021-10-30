@@ -1,11 +1,12 @@
 package com.example.newmed.viewmodel
 
 import androidx.lifecycle.*
+import com.example.newmed.database.MedDatabase
+import com.example.newmed.database.PatientDao
 import com.example.newmed.database.PatientEntity
+import com.example.newmed.databinding.FragmentInfoPatientBinding
 import com.example.newmed.model.PatientModel
 import com.example.newmed.reposotiry.PatientRepository
-import com.example.newmed.server.ApiExchange
-import com.example.newmed.server.ExchangeItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -17,6 +18,9 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
     private val _patient = MutableLiveData<PatientEntity>()
     val patient: LiveData<PatientEntity> = _patient
 
+    private lateinit var binding: FragmentInfoPatientBinding
+    private var patientId = -1
+
     //добавление пациента в БД
     fun addPatient(
         date: String,
@@ -26,7 +30,7 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
         namePatient: String,
         agePatient: String,
         numberPatient: String,
-        pricePatient: String,
+        pricePatient: Int,
         alko: Boolean,
         traumaticBrain: Boolean,
         diabetes: Boolean,
@@ -35,7 +39,17 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
         arrhytmia: Boolean,
         gemma: Boolean,
         cirrhosis: Boolean,
-        pulse: String
+        magnia: Int,
+        ringera: Int,
+        galoperidol: Int,
+        dimedrol: Int,
+        fenibut: Int,
+        tiamin: Int,
+        unitiol: Int,
+        sonnat: Int,
+        karbazipin: Int,
+        normogidron: Int,
+        anaprilin: Int
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addPatient(
@@ -56,7 +70,17 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
                 arrhytmia = arrhytmia,
                 gemma = gemma,
                 cirrhosis = cirrhosis,
-                pulse = pulse
+                magnia = magnia,
+                ringera = ringera,
+                galoperidol = galoperidol,
+                dimedrol = dimedrol,
+                fenibut = fenibut,
+                tiamin = tiamin,
+                unitiol = unitiol,
+                sonnat = sonnat,
+                karbazipin = karbazipin,
+                normogidron = normogidron,
+                anaprilin = anaprilin
             )
         }
     }
@@ -67,12 +91,9 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
         }
     }
 
-    fun updateInfoPatient() {
+    fun updatePatient(patinet: PatientEntity){
         viewModelScope.launch(Dispatchers.IO) {
-            _patient.value?.let {
-                repository.updateInfoPatient (it.id, it.traumaticBrain, it.diabetes)
-                _patient.postValue(it.copy(traumaticBrain = !it.traumaticBrain, diabetes = !it.diabetes))
-            }
+            repository.updatePatient(patinet)
         }
     }
 }

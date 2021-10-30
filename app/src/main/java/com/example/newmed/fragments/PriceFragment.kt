@@ -17,6 +17,7 @@ import com.example.newmed.databinding.FragmentPriceBinding
 import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
 import com.example.newmed.viewmodel.PriceViewModel
+import kotlinx.android.synthetic.main.item_price.view.*
 
 class PriceFragment : Fragment() {
 
@@ -42,18 +43,14 @@ class PriceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val tvExchange = binding.tvExchange
+        val tvExchange = binding.tvExchange
         priceViewModel.getExchange()
         priceViewModel.exchangeLiveData.observe(viewLifecycleOwner, {
             //Log.e("price", it.joinToString())
-            binding.tvExchange.text = it.first().USD_out
+            tvExchange.text = it.first().USD_out
         })
 
-        adapter = PriceListAdapter(PriceListener {
-
-            //что будет происходить по клику
-
-        })
+        adapter = PriceListAdapter(PriceListener {})
 
         binding.priceRecyclerView.adapter = adapter
 

@@ -1,5 +1,6 @@
 package com.example.newmed.fragments
 
+import android.app.Notification
 import android.os.Bundle
 import android.text.Editable
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
+import com.example.newmed.database.PatientDao
 import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.databinding.FragmentAddPatientBinding
 import com.example.newmed.reposotiry.PatientViewModelFactory
@@ -36,7 +38,7 @@ class AddPatientFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val price = "165"
+        val price = "185"
         val etPrice = binding.etPricePatient.editText
         etPrice?.text = Editable.Factory.getInstance().newEditable(price)
 
@@ -54,7 +56,7 @@ class AddPatientFragment : Fragment() {
                 binding.etNamePatient.editText?.text.toString(),
                 binding.etAgePatient.editText?.text.toString(),
                 binding.etNumberPatient.editText?.text.toString(),
-                binding.etPricePatient.editText?.text.toString(),
+                binding.etPricePatient.editText?.text.toString().toInt(),
                 binding.cbAlcohol.isChecked,
                 binding.cbTraumaticBrain.isChecked,
                 binding.cbDiabetes.isChecked,
@@ -63,7 +65,14 @@ class AddPatientFragment : Fragment() {
                 binding.cbArrhythmia.isChecked,
                 binding.cbGemma.isChecked,
                 binding.cbCirrhosis.isChecked,
-                binding.tvPulse.text.toString()
+                0, 0,0,
+                0, 0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             )
             activity?.onBackPressed()
         }

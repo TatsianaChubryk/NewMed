@@ -15,12 +15,15 @@ class PriceListAdapter (
     class PriceHolder(private val binding: ItemPriceBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        //связываются данные и берутся откуда ввели, чтоб вставить куда надо
+       //связываются данные и берутся откуда ввели, чтоб вставить куда надо
         fun bind(patientModel: PatientModel, clickListener: PriceListener) {
+           val price = patientModel.pricePatient
+           val priceD = (price * 0.25) - 1.25
             binding.apply {
-                //tvData.text = patientModel.date
+                tvData.text = patientModel.date
                 tvNameCall.text = patientModel.nameCall
-                tvPrice.text = patientModel.pricePatient
+                tvPrice.text = price.toString()
+                tvPriceD.text = priceD.toString()
                 root.setOnClickListener {
                     clickListener.onClickPrice(patientModel)
                 }

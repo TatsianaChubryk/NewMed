@@ -20,8 +20,7 @@ class RemedyListAdapter(
         fun bind(remedyModel: RemedyModel, clickListener: RemedyListener) {
             binding.apply {
                 tvRemedy.text = remedyModel.nameRemedy
-                tvAmountRemedy.text = remedyModel.amountRemedy.toString()
-                etAmount.text = Editable.Factory.getInstance().newEditable(remedyModel.amountRemedy.toString())
+                etRemedyAmount.text = Editable.Factory.getInstance().newEditable(remedyModel.amountRemedy.toString())
                 root.setOnClickListener {
                     clickListener.onClickRemedy(remedyModel)
                 }

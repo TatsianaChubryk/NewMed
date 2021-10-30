@@ -38,6 +38,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnSaveInfoPatient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_save" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -57,13 +65,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/line3"
                 tools:ignore="MissingConstraints">
 
-                <androidx.appcompat.widget.AppCompatImageButton
+                <!--<androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btnSaveInfoPatient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="9dp"
-                    android:src="@drawable/ic_add" />
+                    android:src="@drawable/ic_add" />-->
 
                 <TextView
                     android:id="@+id/textNP"
@@ -98,19 +106,19 @@
                     android:layout_below="@+id/textNP"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:text="@string/number_call"
                     android:textColor="@color/grey"
                     android:textSize="10sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/numberPatient"
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/namePatient"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="9dp"
                     android:layout_toEndOf="@+id/textNP"
                     android:gravity="center"
                     android:text="+375336477142"
@@ -141,7 +149,7 @@
                     android:layout_below="@+id/textNC"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:text="@string/diagnosis"
                     android:textColor="@color/grey"
@@ -153,10 +161,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/numberPatient"
                     android:layout_marginStart="11dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="9dp"
                     android:layout_toEndOf="@+id/textD"
                     android:gravity="center"
-                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -180,7 +187,7 @@
                     android:layout_below="@+id/textZ"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="7dp"
                     android:text="@string/cmt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -294,27 +301,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/btnEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="0dp"
-                    android:src="@drawable/ic_edit" />
-
-                <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/btnSave"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="0dp"
-                    android:src="@drawable/ic_add"
-                    android:visibility="gone" />
-
             </RelativeLayout>
 
             <RelativeLayout
@@ -335,118 +321,395 @@
                 app:layout_constraintTop_toBottomOf="@+id/line4"
                 tools:ignore="MissingConstraints">
 
-               <!-- <TextView
-                    android:id="@+id/textAd"
+                <TextView
+                    android:id="@+id/tvMagnia"
+                    style="@style/MyTextView"
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:layout_alignParentStart="true"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
-                    android:gravity="center"
-                    android:text="@string/ad"
-                    android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/magnia" />
+
+                <EditText
+                    android:id="@+id/etMagnia"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
 
                 <TextView
-                    android:id="@+id/tvAd"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="80dp"
-                    android:layout_height="25dp"
+                    android:id="@+id/tvRingera"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvMagnia"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ringera" />
+
+                <EditText
+                    android:id="@+id/etRingera"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etMagnia"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvGaloperidol"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvRingera"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/galoperidol" />
+
+                <EditText
+                    android:id="@+id/etGaloperidol"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etRingera"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="145dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvDimedrol"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvGaloperidol"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/dimedrol" />
+
+                <EditText
+                    android:id="@+id/etDimedrol"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etGaloperidol"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="190dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvFenibut"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvDimedrol"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/fenibut" />
+
+                <EditText
+                    android:id="@+id/etFenibut"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etDimedrol"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="235dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvTiamin"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvFenibut"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/tiamin" />
+
+                <EditText
+                    android:id="@+id/etTiamin"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etFenibut"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="275dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvUnitiol"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTiamin"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/unitiol" />
+
+                <EditText
+                    android:id="@+id/etUnitiol"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etTiamin"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="325dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvSonnat"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvUnitiol"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/sonnat" />
+
+                <EditText
+                    android:id="@+id/etSonnat"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etUnitiol"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="370dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvKarbazipin"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvSonnat"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/karbazipin" />
+
+                <EditText
+                    android:id="@+id/etKarbazipin"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etSonnat"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="415dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvNormogidron"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvKarbazipin"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/normogidron" />
+
+                <EditText
+                    android:id="@+id/etNormogidron"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etKarbazipin"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="460dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/greyView" />
+
+                <TextView
+                    android:id="@+id/tvAnaprilin"
+                    style="@style/MyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvNormogidron"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/anaprilin" />
+
+                <EditText
+                    android:id="@+id/etAnaprilin"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/etNormogidron"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center" />
+
+            </RelativeLayout>
+
+           <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="15dp"
-                    android:layout_toEndOf="@+id/textAd"
-                    android:gravity="left"
-                    android:text="180/120"
-                    android:textColorHint="@color/grey"
+                    android:gravity="center"
+                    android:text="20.09.21"
                     android:textSize="16sp"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etAd"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="100dp"
-                    android:layout_height="55dp"
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="15dp"
-                    android:layout_toEndOf="@+id/textAd"
                     android:gravity="center"
-                    android:textColorHint="@color/grey"
+                    android:text="20.09.21"
                     android:textSize="16sp"
-                    android:visibility="invisible"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textPulse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:id="@+id/tvNameCall"
+                    android:layout_width="140dp"
+                    android:layout_height="35dp"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_toEndOf="@+id/etAd"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="31dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="71dp"
+                    android:layout_toEndOf="@+id/tvData"
                     android:gravity="center"
-                    android:text="@string/pulse"
-                    android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:text="АлексейЧубр"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/tvData"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/etPulse"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_toEndOf="@+id/textPulse"
-                    android:gravity="left"
-                    android:text="120"
-                    android:textColorHint="@color/grey"
-                    android:textSize="16sp"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />-->
-
-                <Button
-                    android:id="@+id/back"
+                    android:id="@+id/tvNumberCall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="dc"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/remedyRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tvNameCall"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/style_menu"
-                    android:backgroundTint="@color/white"
-                    android:divider="@color/black"
-                    android:dividerHeight="1px"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="70dp"
+                    android:gravity="center"
+                    android:text="+375(29)64-77-142"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="MissingConstraints"
-                    tools:itemCount="100"
-                    tools:listitem="@layout/item_remedy_patient" />
-            </RelativeLayout>
+                    app:layout_constraintHorizontal_bias="0.116"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="361dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvNumberCall"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="г. Минск ул. Калиновского 75 кв 46"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNameCall"
+                    app:layout_constraintVertical_bias="0.875" />
+            </RelativeLayout>
 
         </RelativeLayout>
 
