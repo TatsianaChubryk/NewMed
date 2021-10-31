@@ -34,7 +34,7 @@ class MenuFragment : Fragment(), View.OnClickListener {
         binding?.imgMedications?.setOnClickListener(this)
         binding?.imgMoney?.setOnClickListener(this)
         binding?.imgSchedule?.setOnClickListener(this)
-        binding?.imgNotes?.setOnClickListener(this)
+        binding?.imgMaps?.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -49,9 +49,9 @@ class MenuFragment : Fragment(), View.OnClickListener {
                 binding?.imgAddPatient -> AddPatientFragment()
                 binding?.imgAllPatients -> PatientAllFragment()
                 binding?.imgSchedule -> SheduleFragment()
-                binding?.imgMoney -> PriceFragment()
+                binding?.imgMoney -> LoginFragment()
                 binding?.imgMedications -> RemedyFragment()
-                binding?.imgNotes -> MapsFragment()
+                binding?.imgMaps -> MapsFragment()
                 else -> null
             }
 
@@ -77,6 +77,6 @@ class MenuFragment : Fragment(), View.OnClickListener {
         binding?.imgMedications?.clipToOutline = true
         binding?.imgMoney?.clipToOutline = true
         binding?.imgSchedule?.clipToOutline = true
-        binding?.imgNotes?.clipToOutline = true
+        binding?.imgMaps?.clipToOutline = true
     }
 }

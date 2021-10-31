@@ -1,10 +1,6 @@
 package com.example.newmed.fragments
 
-import android.graphics.drawable.AnimatedVectorDrawable
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +13,6 @@ import com.example.newmed.databinding.FragmentPriceBinding
 import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
 import com.example.newmed.viewmodel.PriceViewModel
-import kotlinx.android.synthetic.main.item_price.view.*
 
 class PriceFragment : Fragment() {
 
@@ -46,7 +41,6 @@ class PriceFragment : Fragment() {
         val tvExchange = binding.tvExchange
         priceViewModel.getExchange()
         priceViewModel.exchangeLiveData.observe(viewLifecycleOwner, {
-            //Log.e("price", it.joinToString())
             tvExchange.text = it.first().USD_out
         })
 

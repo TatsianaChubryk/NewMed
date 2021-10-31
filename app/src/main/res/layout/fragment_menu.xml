@@ -107,14 +107,14 @@
                     android:src="@drawable/schedule" />
 
                 <ImageView
-                    android:id="@+id/imgNotes"
+                    android:id="@+id/imgMaps"
                     android:layout_width="145dp"
                     android:layout_height="165dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/style_menu"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/notes" />
+                    android:src="@drawable/maps" />
             </LinearLayout>
 
         </LinearLayout>

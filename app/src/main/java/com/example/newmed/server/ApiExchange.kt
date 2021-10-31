@@ -25,8 +25,8 @@ interface ApiExchange {
 
         fun createRetrofit(): ApiExchange {
             val retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build()
             return retrofit.create()

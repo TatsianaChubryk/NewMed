@@ -51,4 +51,10 @@
     <string name="karbazipin">таб. Карбазипин 200мг.</string>
     <string name="normogidron">пор. Нормогидрон</string>
     <string name="anaprilin">таб. Анаприлин 10мг.</string>
+    <string name="login">Логин</string>
+    <string name="fail_login">Неверный логин</string>
+    <string name="fail_password">Неверный пароль</string>
+    <string name="password">Пароль</string>
+    <string name="btnLogin">войти</string>
+    <string name="shake">ПОТРЯСИ ТЕЛЕФОН - УБЕЙ ВИРУС</string>
 </resources>
