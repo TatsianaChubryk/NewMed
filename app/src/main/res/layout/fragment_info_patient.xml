@@ -143,6 +143,23 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="17dp"
+                    android:layout_toEndOf="@+id/tvAgePatient"
+                    android:gravity="center"
+                    android:text="лет"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/namePatient"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
                     android:id="@+id/textD"
                     android:layout_width="49dp"
                     android:layout_height="25dp"
@@ -191,7 +208,8 @@
                     android:text="@string/cmt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyCheckBox"/>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbDiabetes"
@@ -204,7 +222,8 @@
                     android:text="@string/sd"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyCheckBox"/>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbHypertension"
@@ -217,7 +236,8 @@
                     android:text="@string/ag"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyCheckBox"/>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbIschemia"
@@ -230,7 +250,8 @@
                     android:text="@string/ibs"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyCheckBox"/>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbArrhythmia"
@@ -243,7 +264,8 @@
                     android:text="@string/aritm"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyCheckBox"/>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbGemma"
@@ -256,7 +278,8 @@
                     android:text="@string/bp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyCheckBox"/>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbCirrhosis"
@@ -270,7 +293,8 @@
                     android:text="@string/cp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:theme="@style/MyCheckBox"/>
 
 
             </RelativeLayout>

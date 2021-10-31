@@ -42,9 +42,9 @@ class AddPatientFragment : Fragment() {
         val etPrice = binding.etPricePatient.editText
         etPrice?.text = Editable.Factory.getInstance().newEditable(price)
 
-        dateFormat() //дата формат
-        isCheckedCheckBox() //переключатель для чекбоксов
-        isCheckedSwitch() //переключатель switch
+        dateFormat()
+        isCheckedCheckBox()
+        isCheckedSwitch()
 
         binding.btnAddPatient.setOnClickListener {
 

@@ -22,12 +22,4 @@
         tools:itemCount="100"
         tools:listitem="@layout/item_remedy" />
 
-    <Button
-        android:id="@+id/btnUpdateRemedy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="584dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

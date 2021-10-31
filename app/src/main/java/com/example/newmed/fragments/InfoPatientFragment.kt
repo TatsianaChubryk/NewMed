@@ -173,6 +173,6 @@ class InfoPatientFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // binding
+         binding
     }
 }

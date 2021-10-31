@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.commit
+import com.bumptech.glide.Glide
 import com.example.newmed.MapsFragment
 import com.example.newmed.R
 import com.example.newmed.databinding.FragmentMenuBinding
