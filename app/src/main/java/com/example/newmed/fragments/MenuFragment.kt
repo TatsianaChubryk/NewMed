@@ -33,10 +33,10 @@ class MenuFragment : Fragment(), View.OnClickListener {
 
         binding?.imgAddPatient?.setOnClickListener(this)
         binding?.imgAllPatients?.setOnClickListener(this)
-        binding?.imgMedications?.setOnClickListener(this)
+        //binding?.imgMedications?.setOnClickListener(this)
         binding?.imgMoney?.setOnClickListener(this)
-        binding?.imgSchedule?.setOnClickListener(this)
-        binding?.imgMaps?.setOnClickListener(this)
+        //binding?.imgSchedule?.setOnClickListener(this)
+       // binding?.imgMaps?.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -50,10 +50,10 @@ class MenuFragment : Fragment(), View.OnClickListener {
             val fragment = when (v) {
                 binding?.imgAddPatient -> AddPatientFragment()
                 binding?.imgAllPatients -> PatientAllFragment()
-                binding?.imgSchedule -> SheduleFragment()
-                binding?.imgMoney -> LoginFragment()
-                binding?.imgMedications -> RemedyFragment()
-                binding?.imgMaps -> MapsFragment()
+               // binding?.imgSchedule -> SheduleFragment()
+                binding?.imgMoney -> PriceFragment()
+               // binding?.imgMedications -> RemedyFragment()
+               // binding?.imgMaps -> MapsFragment()
                 else -> null
             }
 
@@ -76,9 +76,9 @@ class MenuFragment : Fragment(), View.OnClickListener {
         binding?.container4?.clipToOutline = true
         binding?.imgAddPatient?.clipToOutline = true
         binding?.imgAllPatients?.clipToOutline = true
-        binding?.imgMedications?.clipToOutline = true
+        //binding?.imgMedications?.clipToOutline = true
         binding?.imgMoney?.clipToOutline = true
-        binding?.imgSchedule?.clipToOutline = true
-        binding?.imgMaps?.clipToOutline = true
+        //binding?.imgSchedule?.clipToOutline = true
+        //binding?.imgMaps?.clipToOutline = true
     }
 }

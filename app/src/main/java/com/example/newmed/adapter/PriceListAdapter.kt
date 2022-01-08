@@ -1,12 +1,15 @@
 package com.example.newmed.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.newmed.R
 import com.example.newmed.databinding.ItemPriceBinding
 import com.example.newmed.model.PatientModel
+import kotlinx.android.synthetic.main.item_price.view.*
 
 class PriceListAdapter (
     private val clickListener: PriceListener
@@ -18,12 +21,19 @@ class PriceListAdapter (
        //связываются данные и берутся откуда ввели, чтоб вставить куда надо
         fun bind(patientModel: PatientModel, clickListener: PriceListener) {
            val price = patientModel.pricePatient
-           val priceD = (price * 0.25) - 1.25
             binding.apply {
                 tvData.text = patientModel.date
+
+                if (patientModel.active) {
+                    tvActive.text = "актив"
+                    tvPrice.setTextColor(Color.rgb(129,212,250))
+                } else
+                    tvActive.text = ""
                 tvNameCall.text = patientModel.nameCall
                 tvPrice.text = price.toString()
-                tvPriceD.text = priceD.toString()
+                if (patientModel.dayNight) {
+                    imgDay.setImageResource(R.drawable.ic_sun)
+                } else imgDay.setImageResource(R.drawable.ic_night)
                 root.setOnClickListener {
                     clickListener.onClickPrice(patientModel)
                 }

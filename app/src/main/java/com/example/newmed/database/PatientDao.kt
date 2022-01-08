@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface PatientDao {
 
-    @Query("SELECT * FROM $TABLE_NAME ORDER BY id DESC")
+    @Query("SELECT * FROM $TABLE_NAME ORDER BY id ASC")
     fun getAllPatient(): Flow<List<PatientEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -23,4 +23,7 @@ interface PatientDao {
 
     @Update
     suspend fun updatePatient(patient: PatientEntity)
+
+    @Query("DELETE FROM $TABLE_NAME")
+    suspend fun deleteAll()
 }

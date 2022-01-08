@@ -11,13 +11,13 @@ import com.example.newmed.PatientApplication
 import com.example.newmed.R
 import com.example.newmed.adapter.PatientListAdapter
 import com.example.newmed.adapter.PatientListener
+import com.example.newmed.databinding.FragmentEditPatientBinding
 import com.example.newmed.databinding.FragmentInfoPatientBinding
-import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
+import com.example.newmed.viewmodel.PatientViewModel
 
-class InfoPatientFragment : Fragment() {
-
-    private lateinit var binding: FragmentInfoPatientBinding
+class EditPatientFragment : Fragment() {
+    private lateinit var binding: FragmentEditPatientBinding
 
     private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory((activity?.application as PatientApplication).repository)
@@ -32,10 +32,10 @@ class InfoPatientFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(patientId: Int): InfoPatientFragment {
+        fun newInstance(patientId: Int): EditPatientFragment {
             val args = Bundle()
             args.putInt("patientId", patientId)
-            val fragment = InfoPatientFragment()
+            val fragment = EditPatientFragment()
             fragment.arguments = args
             return fragment
         }
@@ -46,7 +46,7 @@ class InfoPatientFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInfoPatientBinding.inflate(inflater, container, false)
+        binding = FragmentEditPatientBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -54,26 +54,18 @@ class InfoPatientFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getPatient()
-
-        binding.btnEditPatient.setOnClickListener {
-            // updatePatient()
-
-            val args = Bundle()
-            args.putInt("patientId", it.id)
-
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.frame, EditPatientFragment.newInstance(patientId = it.id))
-                ?.commit()
-        }
     }
 
     private fun getPatient() {
         patientViewModel.patient.observe(viewLifecycleOwner) {
-            binding.tvData.text = it.date
-            binding.tvPrice.text = it.pricePatient.toString()
-            binding.tvNameCall.text = it.nameCall
-            binding.tvNumberCall.text = it.numberCall
+           // binding.tvData.text = it.date
+
+            val pricePatient = binding.etP
+            binding.etPricePatientEdit.editText?.text = Editable.Factory.getInstance().newEditable(pricePatient.toString())
+
+            val nameCall = it.nameCall
+            binding.etNameCallEdit.editText?.text = Editable.Factory.getInstance().newEditable(nameCall.toString())
+           /* binding.tvNumberCall.text = it.numberCall
             binding.tvAddress.text = it.addressPatient
             binding.namePatient.text = it.namePatient
             binding.numberPatient.text =
@@ -91,7 +83,8 @@ class InfoPatientFragment : Fragment() {
             binding.cbIschemia.isChecked = it.ishemiya
             binding.cbArrhythmia.isChecked = it.arrhytmia
             binding.cbGemma.isChecked = it.gemma
-            binding.cbCirrhosis.isChecked = it.cirrhosis/*
+            binding.cbCirrhosis.isChecked = it.cirrhosis*/
+        /*
             binding.etMagnia.text = Editable.Factory.getInstance().newEditable(it.magnia.toString())
             binding.etRingera.text = Editable.Factory.getInstance().newEditable(it.ringera.toString())
             binding.etGaloperidol.text = Editable.Factory.getInstance().newEditable(it.galoperidol.toString())
@@ -174,4 +167,5 @@ class InfoPatientFragment : Fragment() {
         super.onDestroy()
         binding
     }
+
 }

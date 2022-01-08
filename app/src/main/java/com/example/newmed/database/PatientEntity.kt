@@ -16,6 +16,9 @@ data class PatientEntity(
     @ColumnInfo(name = COLUMN_DATE)
     val date: String,
 
+    @ColumnInfo(name = COLUMN_ACTIVE)
+    val active: Boolean,
+
     @ColumnInfo(name = COLUMN_NAMECALL)
     val nameCall: String,
 
@@ -37,8 +40,17 @@ data class PatientEntity(
     @ColumnInfo(name = COLUMN_PRICEPATIENT)
     val pricePatient: Int,
 
+    @ColumnInfo(name = COLUMN_DAYNIGHT)
+    val dayNight: Boolean,
+
     @ColumnInfo(name = COLUMN_AlKO)
     val alko: Boolean,
+
+    @ColumnInfo(name = COLUMN_DISTANCE)
+    val distance: Int,
+
+    @ColumnInfo(name = COLUMN_TIME)
+    val time: Int,
 
     @ColumnInfo(name = COLUMN_BRAIN)
     val traumaticBrain: Boolean,
@@ -59,45 +71,46 @@ data class PatientEntity(
     var gemma: Boolean,
 
     @ColumnInfo(name = COLUMN_CIRRHOSIS)
-    var cirrhosis: Boolean,
+    var cirrhosis: Boolean/*,
 
     @ColumnInfo(name = COLUMN_MAGNIA)
-    val magnia: Int,
+    val magnia: Double,
 
     @ColumnInfo(name = COLUMN_RINGERA)
-    val ringera: Int,
+    val ringera: Double,
 
     @ColumnInfo(name = COLUMN_GALOPERIDOL)
-    val galoperidol: Int,
+    val galoperidol: Double,
 
     @ColumnInfo(name = COLUMN_DIMEDROL)
-    val dimedrol: Int,
+    val dimedrol: Double,
 
     @ColumnInfo(name = COLUMN_FENIBUT)
-    val fenibut: Int,
+    val fenibut: Double,
 
     @ColumnInfo(name = COLUMN_TIAMIN)
-    val tiamin: Int,
+    val tiamin: Double,
 
     @ColumnInfo(name = COLUMN_UNITIOL)
-    val unitiol: Int,
+    val unitiol: Double,
 
     @ColumnInfo(name = COLUMN_SONNAT)
-    val sonnat: Int,
+    val sonnat: Double,
 
     @ColumnInfo(name = COLUMN_KARBAZIPIN)
-    val karbazipin: Int,
+    val karbazipin: Double,
 
     @ColumnInfo(name = COLUMN_NORMOGIDRON)
-    val normogidron: Int,
+    val normogidron: Double,
 
     @ColumnInfo(name = COLUMN_ANAPRILIN)
-    val anaprilin: Int,
+    val anaprilin: Double,*/
 ) {
     companion object {
         const val TABLE_NAME = "patient_table"
         const val COLUMN_ID = "id"
         const val COLUMN_DATE = "date"
+        const val COLUMN_ACTIVE = "active"
         const val COLUMN_NAMECALL = "nameCall"
         const val COLUMN_NUMBERCALL = "numberCall"
         const val COLUMN_ADDRESSPATIENT = "addressPatient"
@@ -105,7 +118,10 @@ data class PatientEntity(
         const val COLUMN_AGEPATIENT = "agePatient"
         const val COLUMN_NUMBERPATIENT = "numberPatient"
         const val COLUMN_PRICEPATIENT = "pricePatient"
+        const val COLUMN_DAYNIGHT = "dayNight"
         const val COLUMN_AlKO = "alko"
+        const val COLUMN_DISTANCE = "distance"
+        const val COLUMN_TIME = "time"
         const val COLUMN_BRAIN = "traumaticBrain"
         const val COLUMN_DIABETES = "diabetes"
         const val COLUMN_HYPERTENSION = "hypertension"
@@ -113,7 +129,7 @@ data class PatientEntity(
         const val COLUMN_ARRHYTMIA = "arrhytmia"
         const val COLUMN_GEMMA = "gemma"
         const val COLUMN_CIRRHOSIS = "cirrhosis"
-        const val COLUMN_MAGNIA = "magnia"
+        /*const val COLUMN_MAGNIA = "magnia"
         const val COLUMN_RINGERA = "ringera"
         const val COLUMN_GALOPERIDOL = "galoperidol"
         const val COLUMN_DIMEDROL = "dimedrol"
@@ -123,7 +139,7 @@ data class PatientEntity(
         const val COLUMN_SONNAT = "sonnat"
         const val COLUMN_KARBAZIPIN = "karbazipin"
         const val COLUMN_NORMOGIDRON = "normogidron"
-        const val COLUMN_ANAPRILIN = "anaprilin"
+        const val COLUMN_ANAPRILIN = "anaprilin"*/
     }
 }
 
@@ -133,6 +149,7 @@ fun List<PatientEntity>.asDomainModel(): List<PatientModel> {
         PatientModel(
             id = it.id,
             date = it.date,
+            active= it.active,
             nameCall = it.nameCall,
             numberCall = it.numberCall,
             addressPatient = it.addressPatient,
@@ -140,14 +157,18 @@ fun List<PatientEntity>.asDomainModel(): List<PatientModel> {
             agePatient = it.agePatient,
             numberPatient = it.numberPatient,
             pricePatient = it.pricePatient,
+            dayNight = it.dayNight,
             alko = it.alko,
+            distance = it.distance,
+            time = it.time,
             traumaticBrain = it.traumaticBrain,
             diabetes = it.diabetes,
             hypertension = it.hypertension,
             ishemiya = it.ishemiya,
             arrhytmia = it.arrhytmia,
             gemma = it.gemma,
-            cirrhosis = it.cirrhosis,
+            cirrhosis = it.cirrhosis
+            /*,
             magnia = it.magnia,
             ringera = it.ringera,
             galoperidol = it.galoperidol,
@@ -158,7 +179,7 @@ fun List<PatientEntity>.asDomainModel(): List<PatientModel> {
             sonnat = it.sonnat,
             karbazipin = it.karbazipin,
             normogidron = it.normogidron,
-            anaprilin = it.anaprilin
+            anaprilin = it.anaprilin*/
         )
     }
 }

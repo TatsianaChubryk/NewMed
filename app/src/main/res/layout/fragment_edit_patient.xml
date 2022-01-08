@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
-    tools:context=".fragments.AddPatientFragment">
+    tools:context=".fragments.EditPatientFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             <RelativeLayout
                 android:id="@+id/line1"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="450dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
@@ -41,7 +41,7 @@
 
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switchActive"
+                    android:id="@+id/switchActiveEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_alignParentTop="true"
@@ -64,7 +64,7 @@
                     android:src="@drawable/ic_person" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etNameCall"
+                    android:id="@+id/etNameCallEdit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="248dp"
                     android:layout_height="65dp"
@@ -98,11 +98,11 @@
                     android:src="@drawable/ic_call" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etNumberCall"
+                    android:id="@+id/etNumberCallEdit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="29dp"
                     android:layout_height="65dp"
-                    android:layout_below="@+id/etNameCall"
+                    android:layout_below="@+id/etNameCallEdit"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -132,11 +132,11 @@
                     android:src="@drawable/ic_place" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etAddressPatient"
+                    android:id="@+id/etAddressPatientEdit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="248dp"
                     android:layout_height="65dp"
-                    android:layout_below="@+id/etNumberCall"
+                    android:layout_below="@+id/etNumberCallEdit"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -152,11 +152,11 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etPricePatient"
+                    android:id="@+id/etPricePatientEdit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="109dp"
                     android:layout_height="65dp"
-                    android:layout_below="@+id/etAddressPatient"
+                    android:layout_below="@+id/etAddressPatientEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="11dp"
@@ -174,37 +174,83 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switchDayNight"
+                    android:id="@+id/switchDayNightEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/etAddressPatient"
+                    android:layout_below="@+id/etAddressPatientEdit"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="30dp"
-                    android:layout_toEndOf="@+id/etPricePatient"
+                    android:layout_toEndOf="@+id/etPricePatientEdit"
                     android:checked="false"
                     android:textSize="16sp"
                     android:theme="@style/MyCheckBox" />
 
                 <ImageView
-                    android:id="@+id/imgDay"
+                    android:id="@+id/imgDayEdit"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/etAddressPatient"
+                    android:layout_below="@+id/etAddressPatientEdit"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="25dp"
-                    android:layout_toEndOf="@+id/switchDayNight"
+                    android:layout_toEndOf="@+id/switchDayNightEdit"
                     android:src="@drawable/ic_sun" />
 
                 <ImageView
-                    android:id="@+id/imgNight"
+                    android:id="@+id/imgNightEdit"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/etAddressPatient"
+                    android:layout_below="@+id/etAddressPatientEdit"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="25dp"
-                    android:layout_toEndOf="@+id/switchDayNight"
+                    android:layout_toEndOf="@+id/switchDayNightEdit"
                     android:src="@drawable/ic_night"
                     android:visibility="invisible" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etDistanceEdit"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="109dp"
+                    android:layout_height="65dp"
+                    android:layout_below="@+id/etPricePatientEdit"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="11dp"
+                    android:hint="км"
+                    android:textColorHint="@color/grey"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etTimeEdit"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="109dp"
+                    android:layout_height="65dp"
+                    android:layout_below="@+id/switchDayNightEdit"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="21dp"
+                    android:layout_marginTop="31dp"
+                    android:layout_marginEnd="83dp"
+                    android:layout_toEndOf="@+id/etDistanceEdit"
+                    android:hint="время"
+                    android:textColorHint="@color/grey"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </RelativeLayout>
 
@@ -232,7 +278,7 @@
                     android:src="@drawable/ic_person" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etNamePatient"
+                    android:id="@+id/etNamePatientEdit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="248dp"
                     android:layout_height="65dp"
@@ -256,11 +302,11 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etAgePatient"
+                    android:id="@+id/etAgePatientEdit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="100dp"
                     android:layout_height="65dp"
-                    android:layout_below="@+id/etNumberPatient"
+                    android:layout_below="@+id/etNumberPatientEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="11dp"
@@ -278,10 +324,10 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbAlcohol"
+                    android:id="@+id/cbAlcoholEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/etAgePatient"
+                    android:layout_below="@+id/etAgePatientEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
@@ -290,10 +336,10 @@
                     android:theme="@style/MyCheckBox" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbDrug"
+                    android:id="@+id/cbDrugEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:layout_below="@+id/cbAlcohol"
+                    android:layout_below="@+id/cbAlcoholEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
@@ -312,11 +358,11 @@
                     android:src="@drawable/ic_call" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etNumberPatient"
+                    android:id="@+id/etNumberPatientEdit"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="248dp"
                     android:layout_height="65dp"
-                    android:layout_below="@+id/etNamePatient"
+                    android:layout_below="@+id/etNamePatientEdit"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="11dp"
@@ -339,14 +385,14 @@
             </RelativeLayout>
 
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchDiseases"
+                android:id="@+id/switchDiseasesEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_below="@+id/line2"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:checked="false"
+                android:checked="true"
                 android:text="@string/diseases"
                 android:textSize="16sp"
                 android:theme="@style/MyCheckBox" />
@@ -355,7 +401,7 @@
                 android:id="@+id/line3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/switchDiseases"
+                android:layout_below="@+id/switchDiseasesEdit"
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
@@ -363,105 +409,105 @@
                 android:background="@drawable/style_menu"
                 android:backgroundTint="@color/white"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbTraumaticBrain"
+                    android:id="@+id/cbTraumaticBrainEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
                     android:text="@string/cmt"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbDiabetes"
+                    android:id="@+id/cbDiabetesEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_below="@+id/cbTraumaticBrain"
+                    android:layout_below="@+id/cbTraumaticBrainEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/sd"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbHypertension"
+                    android:id="@+id/cbHypertensionEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_below="@+id/cbDiabetes"
+                    android:layout_below="@+id/cbDiabetesEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/ag"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbIschemia"
+                    android:id="@+id/cbIschemiaEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_below="@+id/cbHypertension"
+                    android:layout_below="@+id/cbHypertensionEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/ibs"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbArrhythmia"
+                    android:id="@+id/cbArrhythmiaEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_below="@+id/cbIschemia"
+                    android:layout_below="@+id/cbIschemiaEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/aritm"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbGemma"
+                    android:id="@+id/cbGemmaEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_below="@+id/cbArrhythmia"
+                    android:layout_below="@+id/cbArrhythmiaEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/bp"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbCirrhosis"
+                    android:id="@+id/cbCirrhosisEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_below="@+id/cbGemma"
+                    android:layout_below="@+id/cbGemmaEdit"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:layout_marginBottom="25dp"
                     android:text="@string/cp"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </RelativeLayout>
 
@@ -476,16 +522,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="15dp"
-                android:text="@string/btn_add_patient"
+                android:text="Сохранить изменения"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <RelativeLayout
+            <!--<RelativeLayout
                 android:id="@+id/line5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/line4"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
@@ -496,7 +541,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/line4"
                 tools:ignore="MissingConstraints"
                 android:visibility="gone">
 
@@ -801,7 +845,7 @@
                     android:layout_marginEnd="15dp"
                     android:gravity="center" />
 
-            </RelativeLayout>
+            </RelativeLayout>-->
 
         </RelativeLayout>
 

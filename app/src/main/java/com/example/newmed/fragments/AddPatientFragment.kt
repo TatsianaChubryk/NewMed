@@ -38,18 +38,17 @@ class AddPatientFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val price = "185"
-        val etPrice = binding.etPricePatient.editText
-        etPrice?.text = Editable.Factory.getInstance().newEditable(price)
-
         dateFormat()
         isCheckedCheckBox()
         isCheckedSwitch()
+        insertNameAndPhone()
+        insertPrise()
 
         binding.btnAddPatient.setOnClickListener {
 
             patientViewModel.addPatient(
                 binding.tvData.text.toString(),
+                binding.switchActive.isChecked,
                 binding.etNameCall.editText?.text.toString(),
                 binding.etNumberCall.editText?.text.toString(),
                 binding.etAddressPatient.editText?.text.toString(),
@@ -57,24 +56,56 @@ class AddPatientFragment : Fragment() {
                 binding.etAgePatient.editText?.text.toString(),
                 binding.etNumberPatient.editText?.text.toString(),
                 binding.etPricePatient.editText?.text.toString().toInt(),
+                binding.switchDayNight.isChecked,
                 binding.cbAlcohol.isChecked,
+                0, 0,
                 binding.cbTraumaticBrain.isChecked,
                 binding.cbDiabetes.isChecked,
                 binding.cbHypertension.isChecked,
                 binding.cbIschemia.isChecked,
                 binding.cbArrhythmia.isChecked,
                 binding.cbGemma.isChecked,
-                binding.cbCirrhosis.isChecked,
-                0, 0,0,
-                0, 0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
+                binding.cbCirrhosis.isChecked/*,
+                1.0, 1.0,1.0,
+                1.0, 1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0*/
             )
             activity?.onBackPressed()
+        }
+    }
+
+    private fun insertPrise() {
+        val priceDay = "165"
+        val priceNight = "175"
+        val etPrice = binding.etPricePatient.editText
+        etPrice?.text = Editable.Factory.getInstance().newEditable(priceDay)
+
+        binding.switchDayNight.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.imgDay.isVisible = false
+                binding.imgNight.isVisible = true
+                etPrice?.text = Editable.Factory.getInstance().newEditable(priceNight)
+            } else if (!isChecked) {
+                binding.imgDay.isVisible = true
+                binding.imgNight.isVisible = false
+                etPrice?.text = Editable.Factory.getInstance().newEditable(priceDay)
+            }
+        }
+    }
+
+    private fun insertNameAndPhone() {
+        binding.imgPatient.setOnClickListener {
+            val nameCall = binding.etNameCall.editText?.text
+            val numberCall = binding.etNumberCall.editText?.text
+            val namePatient = binding.etNamePatient.editText
+            val numberPatient = binding.etNumberPatient.editText
+            namePatient?.text = Editable.Factory.getInstance().newEditable(nameCall.toString())
+            numberPatient?.text = Editable.Factory.getInstance().newEditable(numberCall.toString())
         }
     }
 

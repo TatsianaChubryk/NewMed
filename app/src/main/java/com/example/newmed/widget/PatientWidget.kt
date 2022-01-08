@@ -29,7 +29,7 @@ class PatientWidget : AppWidgetProvider() {
         val repository = PatientRepository(db.patientDao())
 
         uiScope.launch {
-            val patient = repository.getPatientById(id = 3)
+            val patient = repository.getPatientById(id = 5)
             if (patient != null) {
                 for (appWidgetId in appWidgetIds) {
                     val views = RemoteViews(context.packageName, R.layout.patient_widget)

@@ -12,7 +12,7 @@ import kotlin.coroutines.CoroutineContext
 
 @Database(
     entities = [PatientEntity::class, RemedyEntity::class],
-    version = 21,
+    version = 24,
     exportSchema = true
 )
 

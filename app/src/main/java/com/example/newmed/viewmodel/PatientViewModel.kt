@@ -24,6 +24,7 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
     //добавление пациента в БД
     fun addPatient(
         date: String,
+        active: Boolean,
         nameCall: String,
         numberCall: String,
         addressPatient: String,
@@ -31,30 +32,34 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
         agePatient: String,
         numberPatient: String,
         pricePatient: Int,
+        dayNight: Boolean,
         alko: Boolean,
+        distance: Int,
+        time: Int,
         traumaticBrain: Boolean,
         diabetes: Boolean,
         hypertension: Boolean,
         ishemiya: Boolean,
         arrhytmia: Boolean,
         gemma: Boolean,
-        cirrhosis: Boolean,
-        magnia: Int,
-        ringera: Int,
-        galoperidol: Int,
-        dimedrol: Int,
-        fenibut: Int,
-        tiamin: Int,
-        unitiol: Int,
-        sonnat: Int,
-        karbazipin: Int,
-        normogidron: Int,
-        anaprilin: Int
+        cirrhosis: Boolean/*,
+        magnia: Double,
+        ringera: Double,
+        galoperidol: Double,
+        dimedrol: Double,
+        fenibut: Double,
+        tiamin: Double,
+        unitiol: Double,
+        sonnat: Double,
+        karbazipin: Double,
+        normogidron: Double,
+        anaprilin: Double*/
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addPatient(
                 //id = id,
                 date = date,
+                active = active,
                 nameCall = nameCall,
                 numberCall = numberCall,
                 addressPatient = addressPatient,
@@ -62,14 +67,17 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
                 agePatient = agePatient,
                 numberPatient = numberPatient,
                 pricePatient = pricePatient,
+                dayNight = dayNight,
                 alko = alko,
+                distance = distance,
+                time = time,
                 traumaticBrain = traumaticBrain,
                 diabetes = diabetes,
                 hypertension = hypertension,
                 ishemiya = ishemiya,
                 arrhytmia = arrhytmia,
                 gemma = gemma,
-                cirrhosis = cirrhosis,
+                cirrhosis = cirrhosis/*,
                 magnia = magnia,
                 ringera = ringera,
                 galoperidol = galoperidol,
@@ -80,7 +88,7 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
                 sonnat = sonnat,
                 karbazipin = karbazipin,
                 normogidron = normogidron,
-                anaprilin = anaprilin
+                anaprilin = anaprilin*/
             )
         }
     }
@@ -94,6 +102,12 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
     fun updatePatient(patinet: PatientEntity){
         viewModelScope.launch(Dispatchers.IO) {
             repository.updatePatient(patinet)
+        }
+    }
+
+    fun clearDB() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAll()
         }
     }
 }

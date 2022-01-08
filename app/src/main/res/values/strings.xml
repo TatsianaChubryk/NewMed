@@ -17,7 +17,7 @@
     <string name="address_patient">Адрес</string>
     <string name="number_patient">Моб. номер</string>
     <string name="money">BYN</string>
-    <string name="alcohol">Алкогольная интоксикация</string>
+    <string name="alcohol">Синдром отмены от алкоголя</string>
     <string name="sex">пол:</string>
     <string name="diseases">Сопутствующие заболевания</string>
     <string name="btn_add_medicamentatons">Пополнить</string>
@@ -25,8 +25,8 @@
     <string name="sd">Сахарный диабет</string>
     <string name="ag">Артериальная гипертензия</string>
     <string name="ibs">Ишемическая болезнь сердца</string>
-    <string name="aritm">Аритмия</string>
-    <string name="bp">Болезни почек</string>
+    <string name="aritm">Нарушение ритма</string>
+    <string name="bp">Повышенная масса тела</string>
     <string name="cp">Цирроз печени</string>
     <string name="inf_patient">Информация о пациенте</string>
     <string name="inf">Информация о лечении</string>
@@ -57,4 +57,9 @@
     <string name="password">Пароль</string>
     <string name="btnLogin">войти</string>
     <string name="shake">ПОТРЯСИ ТЕЛЕФОН - УБЕЙ ВИРУС</string>
+    <string name="drugs">Синдром отмены от наркотических средств</string>
+    <string name="active">Актив</string>
+    <string name="clearSpisok">Очистить список</string>
+    <string name="day">день</string>
+    <string name="night">ночь</string>
 </resources>

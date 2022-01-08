@@ -13,20 +13,23 @@
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/hand_soap_wash.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/ic_add.xml" value="0.3723958333333333" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/ic_dropper.xml" value="0.3828125" />
+        <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/ic_night.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/ic_person.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/ic_save.xml" value="0.3828125" />
+        <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/ic_sun.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/ic_virus.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/style_menu.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/virus.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/drawable/virus_anim.xml" value="0.3828125" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/activity_main.xml" value="0.17147922998986828" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_add_patient.xml" value="0.33" />
+        <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_edit_patient.xml" value="0.36666666666666664" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_edit_treatment.xml" value="0.36666666666666664" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_info_patient.xml" value="0.3013392857142857" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_maps.xml" value="0.36666666666666664" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_medications_list.xml" value="0.4624277456647399" />
-        <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_menu.xml" value="0.23233695652173914" />
+        <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_patient_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_price.xml" value="0.36666666666666664" />
         <entry key="..\:/Diplom/NewMed/app/src/main/res/layout/fragment_remedy_list.xml" value="0.33" />
