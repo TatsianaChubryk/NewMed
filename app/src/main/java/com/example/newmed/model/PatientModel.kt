@@ -20,6 +20,7 @@ data class PatientModel (
     val alko: Boolean,
     val distance: Int,
     val time: Int,
+    val min: Int,
     val traumaticBrain: Boolean,
     val diabetes: Boolean,
     val hypertension: Boolean,

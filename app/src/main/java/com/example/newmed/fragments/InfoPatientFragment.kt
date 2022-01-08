@@ -5,12 +5,15 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
 import com.example.newmed.R
 import com.example.newmed.adapter.PatientListAdapter
 import com.example.newmed.adapter.PatientListener
+import com.example.newmed.database.PatientEntity
 import com.example.newmed.databinding.FragmentInfoPatientBinding
 import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
@@ -54,31 +57,22 @@ class InfoPatientFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getPatient()
+        isCheckedSwitch()
 
-        binding.btnEditPatient.setOnClickListener {
-            // updatePatient()
-
-            val args = Bundle()
-            args.putInt("patientId", it.id)
-
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.frame, EditPatientFragment.newInstance(patientId = it.id))
-                ?.commit()
-        }
+        binding.btnEditPatient.setOnClickListener { updatePatient() }
     }
 
     private fun getPatient() {
         patientViewModel.patient.observe(viewLifecycleOwner) {
             binding.tvData.text = it.date
-            binding.tvPrice.text = it.pricePatient.toString()
+            binding.switchActive.isChecked = it.active
             binding.tvNameCall.text = it.nameCall
             binding.tvNumberCall.text = it.numberCall
             binding.tvAddress.text = it.addressPatient
-            binding.namePatient.text = it.namePatient
+            binding.namePatient.text = Editable.Factory.getInstance().newEditable(it.namePatient)
             binding.numberPatient.text =
                 Editable.Factory.getInstance().newEditable(it.numberPatient)
-            binding.tvAgePatient.text = it.agePatient
+            binding.tvAgePatient.text = Editable.Factory.getInstance().newEditable(it.agePatient)
 
             if (it.alko) {
                 binding.tvDiagnosis.text = "Синдром отмены от алкоголя"
@@ -91,19 +85,86 @@ class InfoPatientFragment : Fragment() {
             binding.cbIschemia.isChecked = it.ishemiya
             binding.cbArrhythmia.isChecked = it.arrhytmia
             binding.cbGemma.isChecked = it.gemma
-            binding.cbCirrhosis.isChecked = it.cirrhosis/*
-            binding.etMagnia.text = Editable.Factory.getInstance().newEditable(it.magnia.toString())
-            binding.etRingera.text = Editable.Factory.getInstance().newEditable(it.ringera.toString())
-            binding.etGaloperidol.text = Editable.Factory.getInstance().newEditable(it.galoperidol.toString())
-            binding.etDimedrol.text = Editable.Factory.getInstance().newEditable(it.dimedrol.toString())
-            binding.etFenibut.text = Editable.Factory.getInstance().newEditable(it.fenibut.toString())
-            binding.etTiamin.text = Editable.Factory.getInstance().newEditable(it.tiamin.toString())
-            binding.etUnitiol.text = Editable.Factory.getInstance().newEditable(it.unitiol.toString())
-            binding.etSonnat.text = Editable.Factory.getInstance().newEditable(it.sonnat.toString())
-            binding.etKarbazipin.text = Editable.Factory.getInstance().newEditable(it.karbazipin.toString())
-            binding.etNormogidron.text = Editable.Factory.getInstance().newEditable(it.normogidron.toString())
-            binding.etAnaprilin.text = Editable.Factory.getInstance().newEditable(it.anaprilin.toString())*/
+            binding.cbCirrhosis.isChecked = it.cirrhosis
+            binding.etDistance.text =
+                Editable.Factory.getInstance().newEditable(it.distance.toString())
+            binding.etTime.text = Editable.Factory.getInstance().newEditable(it.time.toString())
+            binding.etMin.text = Editable.Factory.getInstance().newEditable(it.min.toString())
+            binding.etPrice.text =
+                Editable.Factory.getInstance().newEditable(it.pricePatient.toString())
+            if (it.dayNight) {
+                binding.switchDayNight.isChecked = true
+                binding.imgDay.isVisible = false
+                binding.imgNight.isVisible = true
+            } else {
+                binding.switchDayNight.isChecked = false
+                binding.imgDay.isVisible = true
+                binding.imgNight.isVisible = false
+            }
+
+            /*
+                binding.etMagnia.text = Editable.Factory.getInstance().newEditable(it.magnia.toString())
+                binding.etRingera.text = Editable.Factory.getInstance().newEditable(it.ringera.toString())
+                binding.etGaloperidol.text = Editable.Factory.getInstance().newEditable(it.galoperidol.toString())
+                binding.etDimedrol.text = Editable.Factory.getInstance().newEditable(it.dimedrol.toString())
+                binding.etFenibut.text = Editable.Factory.getInstance().newEditable(it.fenibut.toString())
+                binding.etTiamin.text = Editable.Factory.getInstance().newEditable(it.tiamin.toString())
+                binding.etUnitiol.text = Editable.Factory.getInstance().newEditable(it.unitiol.toString())
+                binding.etSonnat.text = Editable.Factory.getInstance().newEditable(it.sonnat.toString())
+                binding.etKarbazipin.text = Editable.Factory.getInstance().newEditable(it.karbazipin.toString())
+                binding.etNormogidron.text = Editable.Factory.getInstance().newEditable(it.normogidron.toString())
+                binding.etAnaprilin.text = Editable.Factory.getInstance().newEditable(it.anaprilin.toString())*/
         }
+    }
+
+    private fun updatePatient() {
+        val data = binding.tvData.text.toString()
+        val active = binding.switchActive.isChecked
+        val nameCall = binding.tvNameCall.text.toString()
+        val numberCall = binding.tvNumberCall.text.toString()
+        val addressPatient = binding.tvAddress.text.toString()
+        val namePatient = binding.namePatient.text.toString()
+        val agePatient = binding.tvAgePatient.text.toString()
+        val numberPatient = binding.numberPatient.text.toString()
+        val pricePatient = binding.etPrice.text.toString().toInt()
+        val dayNight = binding.switchDayNight.isChecked
+        val distance = binding.etDistance.text.toString().toInt()
+        val time = binding.etTime.text.toString().toInt()
+        val min = binding.etMin.text.toString().toInt()
+        val cbBrain = binding.cbTraumaticBrain.isChecked
+        val cbDiabetes = binding.cbDiabetes.isChecked
+        val cbHypertension = binding.cbHypertension.isChecked
+        val cbIschemia = binding.cbIschemia.isChecked
+        val cbArrhythmia = binding.cbArrhythmia.isChecked
+        val cbGemma = binding.cbGemma.isChecked
+        val cbCirrhosis = binding.cbCirrhosis.isChecked
+
+        val update = PatientEntity(
+            arguments?.getInt("patientId") ?: 0,
+            data,
+            active,
+            nameCall,
+            numberCall,
+            addressPatient,
+            namePatient,
+            agePatient,
+            numberPatient,
+            pricePatient,
+            dayNight,
+            alko = true,
+            distance,
+            time,
+            min,
+            cbBrain,
+            cbDiabetes,
+            cbHypertension,
+            cbIschemia,
+            cbArrhythmia,
+            cbGemma,
+            cbCirrhosis
+        )
+        patientViewModel.updatePatient(update)
+        Toast.makeText(requireContext(), getString(R.string.update_info), Toast.LENGTH_SHORT).show()
     }
 
     /*  private fun updatePatient() {
@@ -169,6 +230,27 @@ class InfoPatientFragment : Fragment() {
           Toast.makeText(requireContext(), getString(R.string.update_info), Toast.LENGTH_SHORT).show()
 
       }*/
+
+    private fun isCheckedSwitch() {
+
+        binding.switchVyzov.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.line7.isVisible = true
+            } else if (!isChecked) {
+                binding.line7.isVisible = false
+            }
+        }
+
+        binding.switchDayNight.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.imgDay.isVisible = false
+                binding.imgNight.isVisible = true
+            } else if (!isChecked) {
+                binding.imgDay.isVisible = true
+                binding.imgNight.isVisible = false
+            }
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

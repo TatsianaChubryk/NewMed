@@ -32,11 +32,14 @@ class PriceListAdapter (
                 tvNameCall.text = patientModel.nameCall
                 tvPrice.text = price.toString()
                 if (patientModel.dayNight) {
-                    imgDay.setImageResource(R.drawable.ic_sun)
-                } else imgDay.setImageResource(R.drawable.ic_night)
+                    imgDay.setImageResource(R.drawable.ic_night)
+                } else imgDay.setImageResource(R.drawable.ic_sun)
                 root.setOnClickListener {
                     clickListener.onClickPrice(patientModel)
                 }
+                tvDistance.text = patientModel.distance.toString()
+                tvTime.text = patientModel.time.toString()
+                tvMin.text = patientModel.min.toString()
             }
         }
     }

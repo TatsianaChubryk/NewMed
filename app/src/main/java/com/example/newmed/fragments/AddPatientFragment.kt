@@ -58,7 +58,7 @@ class AddPatientFragment : Fragment() {
                 binding.etPricePatient.editText?.text.toString().toInt(),
                 binding.switchDayNight.isChecked,
                 binding.cbAlcohol.isChecked,
-                0, 0,
+                0, 0, 0,
                 binding.cbTraumaticBrain.isChecked,
                 binding.cbDiabetes.isChecked,
                 binding.cbHypertension.isChecked,

@@ -52,6 +52,9 @@ data class PatientEntity(
     @ColumnInfo(name = COLUMN_TIME)
     val time: Int,
 
+    @ColumnInfo(name = COLUMN_MIN)
+    val min: Int,
+
     @ColumnInfo(name = COLUMN_BRAIN)
     val traumaticBrain: Boolean,
 
@@ -122,6 +125,7 @@ data class PatientEntity(
         const val COLUMN_AlKO = "alko"
         const val COLUMN_DISTANCE = "distance"
         const val COLUMN_TIME = "time"
+        const val COLUMN_MIN = "min"
         const val COLUMN_BRAIN = "traumaticBrain"
         const val COLUMN_DIABETES = "diabetes"
         const val COLUMN_HYPERTENSION = "hypertension"
@@ -161,6 +165,7 @@ fun List<PatientEntity>.asDomainModel(): List<PatientModel> {
             alko = it.alko,
             distance = it.distance,
             time = it.time,
+            min = it.min,
             traumaticBrain = it.traumaticBrain,
             diabetes = it.diabetes,
             hypertension = it.hypertension,
