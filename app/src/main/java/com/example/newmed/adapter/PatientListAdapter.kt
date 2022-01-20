@@ -2,9 +2,12 @@ package com.example.newmed.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.newmed.SwipeToDelete
 import com.example.newmed.model.PatientModel
 import com.example.newmed.databinding.ItemPatientBinding
 

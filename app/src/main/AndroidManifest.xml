@@ -26,17 +26,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewMed">
-        <receiver
-            android:name=".widget.PatientWidget"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
 
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/patient_widget_info" />
-        </receiver>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

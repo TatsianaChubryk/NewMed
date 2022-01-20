@@ -12,15 +12,16 @@ import kotlin.coroutines.CoroutineContext
 
 @Database(
     entities = [PatientEntity::class, RemedyEntity::class],
-    version = 25,
+    version = 26,
     exportSchema = true
 )
 
 abstract class MedDatabase : RoomDatabase() {
-    abstract fun patientDao(): PatientDao
-    abstract fun remedyDao(): RemedyDao
+    abstract val patientDao: PatientDao
+    //abstract fun remedyDao(): RemedyDao
+}
 
-    companion object {
+   /* companion object {
         @Volatile
         private var INSTANCE: MedDatabase? = null
 
@@ -78,4 +79,4 @@ abstract class MedDatabase : RoomDatabase() {
             remedyDao.insert(remedy)
         }
     }
-}
+}*/

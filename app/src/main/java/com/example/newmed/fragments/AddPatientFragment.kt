@@ -7,13 +7,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
+import com.example.newmed.R
 import com.example.newmed.database.PatientDao
+import com.example.newmed.database.PatientEntity
 import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.databinding.FragmentAddPatientBinding
 import com.example.newmed.reposotiry.PatientViewModelFactory
+import org.koin.android.ext.android.get
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,8 +25,11 @@ class AddPatientFragment : Fragment() {
 
     private lateinit var binding: FragmentAddPatientBinding
 
+   // private var binding: FragmentAddPatientBinding? = null
+
+
     private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).repository)
+        PatientViewModelFactory((activity?.application as PatientApplication).get())
     }
 
     override fun onCreateView(
@@ -44,45 +51,43 @@ class AddPatientFragment : Fragment() {
         insertNameAndPhone()
         insertPrise()
 
-        binding.btnAddPatient.setOnClickListener {
+        binding.btnAddPatient.setOnClickListener { addPatient() }
+    }
 
-            patientViewModel.addPatient(
-                binding.tvData.text.toString(),
-                binding.switchActive.isChecked,
-                binding.etNameCall.editText?.text.toString(),
-                binding.etNumberCall.editText?.text.toString(),
-                binding.etAddressPatient.editText?.text.toString(),
-                binding.etNamePatient.editText?.text.toString(),
-                binding.etAgePatient.editText?.text.toString(),
-                binding.etNumberPatient.editText?.text.toString(),
-                binding.etPricePatient.editText?.text.toString().toInt(),
-                binding.switchDayNight.isChecked,
-                binding.cbAlcohol.isChecked,
-                0, 0, 0,
-                binding.cbTraumaticBrain.isChecked,
-                binding.cbDiabetes.isChecked,
-                binding.cbHypertension.isChecked,
-                binding.cbIschemia.isChecked,
-                binding.cbArrhythmia.isChecked,
-                binding.cbGemma.isChecked,
-                binding.cbCirrhosis.isChecked/*,
-                1.0, 1.0,1.0,
-                1.0, 1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0*/
-            )
-            activity?.onBackPressed()
-        }
+    private fun addPatient() {
+        val insert = PatientEntity(
+            arguments?.getInt("patientId") ?: 0,
+            binding.tvData.text.toString(),
+            binding.switchActive.isChecked,
+            binding.etNameCall.editText?.text.toString(),
+            binding.etNumberCall.editText?.text.toString(),
+            binding.etAddressPatient.editText?.text.toString(),
+            binding.etNamePatient.editText?.text.toString(),
+            binding.etAgePatient.editText?.text.toString(),
+            binding.etNumberPatient.editText?.text.toString(),
+            binding.etPricePatient.editText?.text.toString().toInt(),
+            binding.switchDayNight.isChecked,
+            alko = true,
+            0,
+            0,
+            0,
+            binding.cbTraumaticBrain.isChecked,
+            binding.cbDiabetes.isChecked,
+            binding.cbHypertension.isChecked,
+            binding.cbIschemia.isChecked,
+            binding.cbArrhythmia.isChecked,
+            binding.cbGemma.isChecked,
+            binding.cbCirrhosis.isChecked
+        )
+        patientViewModel.addPatient(insert)
+        Toast.makeText(requireContext(), getString(R.string.add_patient), Toast.LENGTH_SHORT).show()
+        activity?.onBackPressed()
     }
 
     private fun insertPrise() {
         val priceDay = "165"
         val priceNight = "175"
-        val etPrice = binding.etPricePatient.editText
+        val etPrice = binding.etPricePatient.editText //обращаться к editText и менять его напрямую
         etPrice?.text = Editable.Factory.getInstance().newEditable(priceDay)
 
         binding.switchDayNight.setOnCheckedChangeListener { _, isChecked ->

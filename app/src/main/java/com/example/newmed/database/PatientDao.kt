@@ -26,4 +26,8 @@ interface PatientDao {
 
     @Query("DELETE FROM $TABLE_NAME")
     suspend fun deleteAll()
+
+    @Query("DELETE FROM $TABLE_NAME" +
+            " WHERE $COLUMN_ID = :id")
+    suspend fun deletePatientById(id: Int)
 }

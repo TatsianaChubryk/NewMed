@@ -66,31 +66,43 @@
                 app:layout_constraintTop_toBottomOf="@+id/line3"
                 tools:ignore="MissingConstraints">
 
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="31dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/active"
+                    android:textSize="16sp"
+                    android:theme="@style/MyCheckBox" />
+
                 <TextView
                     android:id="@+id/textNP"
                     android:layout_width="49dp"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="45dp"
                     android:gravity="bottom"
                     android:text="@string/name"
                     android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:textSize="8sp" />
 
                 <EditText
                     android:id="@+id/namePatient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="13dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="35dp"
                     android:layout_toEndOf="@+id/textNP"
-                    android:gravity="center"
+                    android:gravity="bottom"
                     android:text="Константин"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textNC"
@@ -98,22 +110,22 @@
                     android:layout_height="25dp"
                     android:layout_below="@+id/textNP"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="25dp"
                     android:gravity="bottom"
                     android:text="@string/number_call"
                     android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:textSize="8sp" />
 
                 <EditText
                     android:id="@+id/numberPatient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/namePatient"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
                     android:layout_toEndOf="@+id/textNP"
-                    android:gravity="center"
+                    android:gravity="bottom"
                     android:text="+375336477142"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
@@ -123,10 +135,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="35dp"
                     android:layout_toEndOf="@+id/namePatient"
-                    android:gravity="center"
+                    android:gravity="bottom"
                     android:text="45"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -140,8 +152,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="27dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="45dp"
                     android:layout_toEndOf="@+id/tvAgePatient"
                     android:gravity="center"
                     android:text="лет"
@@ -158,22 +170,23 @@
                     android:layout_height="25dp"
                     android:layout_below="@+id/textNC"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="25dp"
                     android:gravity="bottom"
                     android:text="@string/diagnosis"
                     android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:textSize="8sp" />
 
                 <TextView
                     android:id="@+id/tvDiagnosis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/numberPatient"
-                    android:layout_marginStart="11dp"
-                    android:layout_marginTop="9dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="19dp"
                     android:layout_toEndOf="@+id/textD"
-                    android:gravity="center"
+                    android:gravity="bottom"
+                    android:text="тут будет диагноз"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -183,7 +196,7 @@
                     android:layout_height="25dp"
                     android:layout_below="@+id/textD"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
                     android:text="@string/diagnosis_case"
@@ -708,37 +721,37 @@
 
                 <TextView
                     android:id="@+id/textDistance"
-                    android:layout_width="55dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
                     android:gravity="bottom"
-                    android:text="расстояние"
+                    android:text="расстояние:"
                     android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:textSize="8sp" />
 
                 <EditText
                     android:id="@+id/etDistance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="13dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
                     android:layout_toEndOf="@+id/textDistance"
                     android:gravity="bottom"
                     android:text="30"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/km"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="18dp"
                     android:layout_toEndOf="@+id/etDistance"
                     android:gravity="bottom"
                     android:text="км"
@@ -751,19 +764,19 @@
                     android:layout_height="30dp"
                     android:layout_below="@+id/textDistance"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="29dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="35dp"
                     android:gravity="bottom"
-                    android:text="время в пути"
+                    android:text="время в пути:"
                     android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:textSize="8sp" />
 
                 <EditText
                     android:id="@+id/etTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/etDistance"
-                    android:layout_marginStart="13dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginBottom="9dp"
                     android:layout_toEndOf="@+id/textTime"
@@ -777,7 +790,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/km"
-                    android:layout_marginStart="3dp"
+                    android:layout_marginStart="2dp"
                     android:layout_marginTop="35dp"
                     android:layout_toEndOf="@+id/etTime"
                     android:gravity="bottom"
@@ -791,7 +804,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/km"
                     android:layout_marginStart="13dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="18dp"
                     android:layout_marginBottom="9dp"
                     android:layout_toEndOf="@+id/hour"
                     android:gravity="bottom"
@@ -804,8 +817,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/km"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="34dp"
                     android:layout_toEndOf="@+id/etMin"
                     android:gravity="bottom"
                     android:text="мин"
@@ -818,32 +831,32 @@
                     android:layout_height="30dp"
                     android:layout_below="@+id/textTime"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="11dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="22dp"
                     android:gravity="bottom"
-                    android:text="стоимость"
+                    android:text="стоимость:"
                     android:textColor="@color/grey"
-                    android:textSize="10sp" />
+                    android:textSize="8sp" />
 
                 <EditText
                     android:id="@+id/etPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/etTime"
-                    android:layout_marginStart="13dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="3dp"
                     android:layout_toEndOf="@+id/textPrice"
                     android:gravity="bottom"
                     android:text="165"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/byn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/min"
-                    android:layout_marginStart="3dp"
+                    android:layout_marginStart="2dp"
                     android:layout_marginTop="32dp"
                     android:layout_toEndOf="@+id/etPrice"
                     android:gravity="bottom"
@@ -858,8 +871,9 @@
                     android:layout_below="@+id/textPrice"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="35dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/byn"
                     android:checked="false"
                     android:textSize="16sp"
                     android:theme="@style/MyCheckBox" />
@@ -881,7 +895,7 @@
                     android:layout_height="40dp"
                     android:layout_below="@+id/etPrice"
                     android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
                     android:layout_toEndOf="@+id/switchDayNight"
                     android:src="@drawable/ic_night"
@@ -908,19 +922,6 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switchActive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="26dp"
-                    android:checked="false"
-                    android:text="@string/active"
-                    android:textSize="16sp"
-                    android:theme="@style/MyCheckBox" />
 
                 <TextView
                     android:id="@+id/tvNameCall"

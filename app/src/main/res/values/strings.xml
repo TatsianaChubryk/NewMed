@@ -8,7 +8,7 @@
     <string name="btn_schedule">График работы</string>
     <string name="name_call">Вызывает</string>
     <string name="name_patient">Имя пациента</string>
-    <string name="name">имя пациента</string>
+    <string name="name">имя пациента:</string>
     <string name="man">М</string>
     <string name="woman">Ж</string>\
     <string name="yes">Да</string>
@@ -40,6 +40,7 @@
     <string name="add_widget">Add widget</string>
     <string name="app_widget_description">This is an app widget description</string>
     <string name="update_info">Информация обновлена</string>
+    <string name="add_patient">Вызов добавлен</string>
     <string name="magnia">р-р Магния сульфата 25% 5мл.</string>
     <string name="ringera">р-р Рингера 250мл.</string>
     <string name="galoperidol">р-р Галоперидол 0,5% 1мл.</string>
@@ -59,7 +60,7 @@
     <string name="shake">ПОТРЯСИ ТЕЛЕФОН - УБЕЙ ВИРУС</string>
     <string name="drugs">Синдром отмены от наркотических средств</string>
     <string name="active">Актив</string>
-    <string name="clearSpisok">Очистить список</string>
+    <string name="clearSpisok">Очистить</string>
     <string name="day">день</string>
     <string name="night">ночь</string>
 </resources>

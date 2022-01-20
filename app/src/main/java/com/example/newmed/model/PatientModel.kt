@@ -5,7 +5,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class PatientModel (
+class PatientModel (
     val id: Int,
     val date: String,
     val active: Boolean,

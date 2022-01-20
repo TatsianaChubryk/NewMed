@@ -13,13 +13,14 @@ import com.example.newmed.databinding.FragmentRemedyListBinding
 import com.example.newmed.viewmodel.RemedyViewModel
 import com.example.newmed.reposotiry.RemedyViewModelFactory
 import kotlinx.android.synthetic.main.item_remedy.view.*
+import org.koin.android.ext.android.get
 
 class RemedyFragment : Fragment() {
 
     private lateinit var binding: FragmentRemedyListBinding
 
     private val remedyViewModel: RemedyViewModel by viewModels {
-        RemedyViewModelFactory((activity?.application as PatientApplication).repositoryRemedy)
+        RemedyViewModelFactory((activity?.application as PatientApplication).get())
     }
 
     private lateinit var adapter: RemedyListAdapter

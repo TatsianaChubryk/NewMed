@@ -13,78 +13,8 @@ class PatientRepository(private val patientDao: PatientDao) {
     //вернет всех пациентов из БД
     fun getAllPatient() = patientDao.getAllPatient().map { it.asDomainModel() }
 
-    //добавит пациента в БД
-    suspend fun addPatient(
-        date: String,
-        active: Boolean,
-        nameCall: String,
-        numberCall: String,
-        addressPatient: String,
-        namePatient: String,
-        agePatient: String,
-        numberPatient: String,
-        pricePatient: Int,
-        dayNight: Boolean,
-        alko: Boolean,
-        distance: Int,
-        time: Int,
-        min: Int,
-        traumaticBrain: Boolean,
-        diabetes: Boolean,
-        hypertension: Boolean,
-        ishemiya: Boolean,
-        arrhytmia: Boolean,
-        gemma: Boolean,
-        cirrhosis: Boolean/*,
-        magnia: Double,
-        ringera: Double,
-        galoperidol: Double,
-        dimedrol: Double,
-        fenibut: Double,
-        tiamin: Double,
-        unitiol: Double,
-        sonnat: Double,
-        karbazipin: Double,
-        normogidron: Double,
-        anaprilin: Double*/
-    ) {
-        return patientDao.insert(
-            PatientEntity(
-                id = 0,
-                date = date,
-                active = active,
-                nameCall = nameCall,
-                numberCall = numberCall,
-                addressPatient = addressPatient,
-                namePatient = namePatient,
-                agePatient = agePatient,
-                numberPatient = numberPatient,
-                pricePatient = pricePatient,
-                dayNight = dayNight,
-                alko = alko,
-                distance = distance,
-                time = time,
-                min = min,
-                traumaticBrain = traumaticBrain,
-                diabetes = diabetes,
-                hypertension = hypertension,
-                ishemiya = ishemiya,
-                arrhytmia = arrhytmia,
-                gemma = gemma,
-                cirrhosis = cirrhosis/*,
-                magnia = magnia,
-                ringera = ringera,
-                galoperidol = galoperidol,
-                dimedrol = dimedrol,
-                fenibut = fenibut,
-                tiamin = tiamin,
-                unitiol = unitiol,
-                sonnat = sonnat,
-                karbazipin = karbazipin,
-                normogidron = normogidron,
-                anaprilin = anaprilin*/
-            )
-        )
+    suspend fun addPatient(paient: PatientEntity) {
+        patientDao.insert(paient)
     }
 
     suspend fun getPatientById(id: Int) = patientDao.getPatientById(id)
@@ -95,6 +25,8 @@ class PatientRepository(private val patientDao: PatientDao) {
 
     //очистит БД
     suspend fun deleteAll() = patientDao.deleteAll()
+
+    suspend fun deletePatientById(id: Int) = patientDao.deletePatientById(id)
 }
 
 class PatientViewModelFactory(private val repository: PatientRepository) :

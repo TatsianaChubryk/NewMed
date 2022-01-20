@@ -17,16 +17,15 @@ import com.example.newmed.database.PatientEntity
 import com.example.newmed.databinding.FragmentInfoPatientBinding
 import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
+import org.koin.android.ext.android.get
 
 class InfoPatientFragment : Fragment() {
 
     private lateinit var binding: FragmentInfoPatientBinding
 
     private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).repository)
+        PatientViewModelFactory((activity?.application as PatientApplication).get())
     }
-
-    private lateinit var adapter: PatientListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,19 +100,6 @@ class InfoPatientFragment : Fragment() {
                 binding.imgDay.isVisible = true
                 binding.imgNight.isVisible = false
             }
-
-            /*
-                binding.etMagnia.text = Editable.Factory.getInstance().newEditable(it.magnia.toString())
-                binding.etRingera.text = Editable.Factory.getInstance().newEditable(it.ringera.toString())
-                binding.etGaloperidol.text = Editable.Factory.getInstance().newEditable(it.galoperidol.toString())
-                binding.etDimedrol.text = Editable.Factory.getInstance().newEditable(it.dimedrol.toString())
-                binding.etFenibut.text = Editable.Factory.getInstance().newEditable(it.fenibut.toString())
-                binding.etTiamin.text = Editable.Factory.getInstance().newEditable(it.tiamin.toString())
-                binding.etUnitiol.text = Editable.Factory.getInstance().newEditable(it.unitiol.toString())
-                binding.etSonnat.text = Editable.Factory.getInstance().newEditable(it.sonnat.toString())
-                binding.etKarbazipin.text = Editable.Factory.getInstance().newEditable(it.karbazipin.toString())
-                binding.etNormogidron.text = Editable.Factory.getInstance().newEditable(it.normogidron.toString())
-                binding.etAnaprilin.text = Editable.Factory.getInstance().newEditable(it.anaprilin.toString())*/
         }
     }
 
@@ -166,70 +152,6 @@ class InfoPatientFragment : Fragment() {
         patientViewModel.updatePatient(update)
         Toast.makeText(requireContext(), getString(R.string.update_info), Toast.LENGTH_SHORT).show()
     }
-
-    /*  private fun updatePatient() {
-          val data = binding.tvData.text.toString()
-          val nameCall = binding.tvNameCall.text.toString()
-          val numberCall = binding.tvNumberCall.text.toString()
-          val addressPatient = binding.tvAddress.text.toString()
-          val namePatient = binding.namePatient.text.toString()
-          val agePatient = binding.tvAgePatient.text.toString()
-          val numberPatient = binding.numberPatient.text.toString()
-          val pricePatient = binding.tvPrice.text.toString().toInt()
-          val cbBrain = binding.cbTraumaticBrain.isChecked
-          val cbDiabetes = binding.cbDiabetes.isChecked
-          val cbHypertension = binding.cbHypertension.isChecked
-          val cbIschemia = binding.cbIschemia.isChecked
-          val cbArrhythmia = binding.cbArrhythmia.isChecked
-          val cbGemma = binding.cbGemma.isChecked
-          val cbCirrhosis = binding.cbCirrhosis.isChecked
-          val magnia = binding.etMagnia.text.toString().toInt()
-          val ringera = binding.etRingera.text.toString().toInt()
-          val galoperidol = binding.etGaloperidol.text.toString().toInt()
-          val dimedrol = binding.etDimedrol.text.toString().toInt()
-          val fenibut = binding.etFenibut.text.toString().toInt()
-          val tiamin = binding.etTiamin.text.toString().toInt()
-          val unitiol = binding.etUnitiol.text.toString().toInt()
-          val sonnat = binding.etSonnat.text.toString().toInt()
-          val karbazipin = binding.etKarbazipin.text.toString().toInt()
-          val normogidron = binding.etNormogidron.text.toString().toInt()
-          val anaprilin = binding.etAnaprilin.text.toString().toInt()
-
-          val update = PatientEntity(
-              arguments?.getInt("patientId") ?: 0,
-              data,
-              ac
-              nameCall,
-              numberCall,
-              addressPatient,
-              namePatient,
-              agePatient,
-              numberPatient,
-              pricePatient,
-              alko = true,
-              cbBrain,
-              cbDiabetes,
-              cbHypertension,
-              cbIschemia,
-              cbArrhythmia,
-              cbGemma,
-              cbCirrhosis,
-              magnia,
-              ringera,
-              galoperidol,
-              dimedrol,
-              fenibut,
-              tiamin,
-              unitiol,
-              sonnat,
-              karbazipin,
-              normogidron,
-              anaprilin
-          )
-          patientViewModel.updatePatient(update)
-          Toast.makeText(requireContext(), getString(R.string.update_info), Toast.LENGTH_SHORT).show()
-
-      }*/
 
     private fun isCheckedSwitch() {
 

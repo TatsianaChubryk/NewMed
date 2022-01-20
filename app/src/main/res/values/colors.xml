@@ -10,8 +10,10 @@
     <color name="greyView">#33979595</color>
     <color name="white">#FFFFFFFF</color>
     <color name="color_background">#F5F4F1</color>
+    <color name="red">#B3E41515</color>
     <color name="light_blue_50">#FFE1F5FE</color>
-    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_200">#81D4FA</color>
+    <color name="light_blue">#8081D4FA</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
 </resources>

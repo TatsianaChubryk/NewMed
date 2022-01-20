@@ -1,9 +1,12 @@
 package com.example.newmed.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.get
+import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
@@ -13,15 +16,17 @@ import com.example.newmed.databinding.FragmentPriceBinding
 import com.example.newmed.viewmodel.PatientViewModel
 import com.example.newmed.reposotiry.PatientViewModelFactory
 import com.example.newmed.viewmodel.PriceViewModel
+import kotlinx.android.synthetic.main.fragment_price.*
 import kotlinx.android.synthetic.main.item_price.*
 import kotlinx.android.synthetic.main.item_price.view.*
+import org.koin.android.ext.android.get
 
 class PriceFragment : Fragment() {
 
     private lateinit var binding: FragmentPriceBinding
 
     private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).repository)
+        PatientViewModelFactory((activity?.application as PatientApplication).get())
     }
 
     private lateinit var adapter: PriceListAdapter
@@ -38,7 +43,6 @@ class PriceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         adapter = PriceListAdapter(PriceListener {})
 
         binding.priceRecyclerView.adapter = adapter
@@ -51,5 +55,12 @@ class PriceFragment : Fragment() {
         binding.btnClear.setOnClickListener {
             patientViewModel.clearDB()
         }
+
+       /* var sum = 0
+        for (i in 0..5){
+            sum += i
+        }
+
+        binding.sumPrice.text = sum.toString()*/
     }
 }
