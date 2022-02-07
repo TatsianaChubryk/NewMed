@@ -60,18 +60,18 @@
             android:textSize="20sp" />
 
         <TextView
-        android:id="@+id/tvActive"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:text="актив"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/tvData"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+            android:id="@+id/tvActive"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="актив"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/tvData"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
 
 
         <ImageView

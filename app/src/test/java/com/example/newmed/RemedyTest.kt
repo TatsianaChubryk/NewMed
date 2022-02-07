@@ -1,7 +1,7 @@
 package com.example.newmed
 
-import com.example.newmed.database.RemedyEntity
-import com.example.newmed.model.RemedyModel
+import com.example.newmed.data.database.RemedyEntity
+import com.example.newmed.domain.model.RemedyModel
 import org.junit.Test
 
 internal class RemedyTest {

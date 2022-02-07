@@ -7,7 +7,7 @@
     android:background="@color/color_background"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".presentation.fragments.LoginFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginLayout"
