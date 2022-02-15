@@ -4,18 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.PatientApplication
 import com.example.newmed.R
-import com.example.newmed.presentation.SwipeToDelete
 import com.example.newmed.presentation.adapter.PatientListAdapter
 import com.example.newmed.presentation.adapter.PatientListener
 import com.example.newmed.databinding.FragmentPatientListBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
+import com.example.newmed.presentation.adapter.DeleteByIdInterface
 
 class PatientAllFragment : Fragment() {
 
@@ -49,6 +48,12 @@ class PatientAllFragment : Fragment() {
                 ?.beginTransaction()
                 ?.replace(R.id.frame, InfoPatientFragment.newInstance(patientId = it.id))
                 ?.commit()
+        }, object : DeleteByIdInterface{
+            override fun patientDeleteClick(id: Int) {
+                patientViewModel.deletePatientById(id)
+                Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()
+            }
+
         })
 
         binding.patientRecyclerView.adapter = adapter
@@ -57,7 +62,7 @@ class PatientAllFragment : Fragment() {
             adapter.submitList(it)
         }
 
-        binding.patientRecyclerView.apply {
+     /*   binding.patientRecyclerView.apply {
             val swipeDelete = object : SwipeToDelete(requireContext()) {
                 override fun onSwiped(
                     viewHolder: RecyclerView.ViewHolder,
@@ -69,20 +74,7 @@ class PatientAllFragment : Fragment() {
 
             val touchHelper = ItemTouchHelper(swipeDelete)
             touchHelper.attachToRecyclerView(binding.patientRecyclerView)
-        }
-        binding.patientRecyclerView.apply {
-            val swipeDelete = object : SwipeToDelete(requireContext()) {
-                override fun onSwiped(
-                    viewHolder: RecyclerView.ViewHolder,
-                    direction: Int
-                ) {
-                    patientViewModel.deletePatientById(arguments?.getInt("patientId") ?: 0)
-                }
-            }
-
-            val touchHelper = ItemTouchHelper(swipeDelete)
-            touchHelper.attachToRecyclerView(binding.patientRecyclerView)
-        }
+        }*/
     }
 
     override fun onDestroy() {

@@ -23,7 +23,6 @@ class PatientRepository(private val patientDao: PatientDao) {
         patientDao.updatePatient(paient)
     }
 
-    //очистит БД
     suspend fun deleteAll() = patientDao.deleteAll()
 
     suspend fun deletePatientById(id: Int) = patientDao.deletePatientById(id)
