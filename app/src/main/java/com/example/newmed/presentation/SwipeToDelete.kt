@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.R
+import com.example.newmed.presentation.fragments.PatientAllFragment
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 abstract class SwipeToDelete(context: Context): ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {

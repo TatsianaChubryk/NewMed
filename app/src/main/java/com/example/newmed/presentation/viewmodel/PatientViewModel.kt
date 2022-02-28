@@ -4,10 +4,12 @@ import androidx.lifecycle.*
 import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.domain.model.PatientModel
 import com.example.newmed.data.reposotiry.PatientRepository
+import com.example.newmed.presentation.interfaces.DeleteByIdInterface
+import com.example.newmed.presentation.interfaces.PatientInterface
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PatientViewModel(private val repository: PatientRepository) : ViewModel() {
+class PatientViewModel(private val repository: PatientInterface, private val deleteByIdInterface: DeleteByIdInterface) : ViewModel() {
 
     val allPatient: LiveData<List<PatientModel>> = repository.getAllPatient().asLiveData()
 
@@ -40,7 +42,8 @@ class PatientViewModel(private val repository: PatientRepository) : ViewModel() 
 
     fun deletePatientById(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-           repository.deletePatientById(id)
+           //repository.deletePatientById(id)
+            deleteByIdInterface.patientDeleteClick(id)
         }
     }
 }

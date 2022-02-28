@@ -2,14 +2,12 @@ package com.example.newmed.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.domain.model.PatientModel
 import com.example.newmed.databinding.ItemPatientBinding
-import com.example.newmed.presentation.SwipeToDelete
+import com.example.newmed.presentation.interfaces.DeleteByIdInterface
 
 class PatientListAdapter(
     private val clickListener: PatientListener, private val deleteInterface: DeleteByIdInterface
@@ -26,7 +24,7 @@ class PatientListAdapter(
                 tvNumberCall.text = patientModel.numberCall
                 tvAddress.text = patientModel.addressPatient
                 root.setOnClickListener {
-                    clickListener.onClickPatient(patientModel)
+                   clickListener.onClickPatient(patientModel)
                 }
 
                 binding.btnDel.setOnClickListener {

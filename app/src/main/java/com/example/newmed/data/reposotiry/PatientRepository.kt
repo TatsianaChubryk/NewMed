@@ -6,34 +6,38 @@ import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.database.PatientDao
 import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.data.entity.asDomainModel
+import com.example.newmed.presentation.interfaces.DeleteByIdInterface
+import com.example.newmed.presentation.interfaces.PatientDeleteById
+import com.example.newmed.presentation.interfaces.PatientInterface
 import kotlinx.coroutines.flow.map
 
-class PatientRepository(private val patientDao: PatientDao) {
+class PatientRepository(private val patientDao: PatientDao): PatientInterface {
 
     //вернет всех пациентов из БД
-    fun getAllPatient() = patientDao.getAllPatient().map { it.asDomainModel() }
+    override fun getAllPatient() = patientDao.getAllPatient().map { it.asDomainModel() }
 
-    suspend fun addPatient(paient: PatientEntity) {
+    override suspend fun addPatient(paient: PatientEntity) {
         patientDao.insert(paient)
     }
 
-    suspend fun getPatientById(id: Int) = patientDao.getPatientById(id)
+    override suspend fun getPatientById(id: Int) = patientDao.getPatientById(id)
 
-    suspend fun updatePatient(paient: PatientEntity) {
+    override suspend fun updatePatient(paient: PatientEntity) {
         patientDao.updatePatient(paient)
     }
 
-    suspend fun deleteAll() = patientDao.deleteAll()
+    override suspend fun deleteAll() = patientDao.deleteAll()
 
-    suspend fun deletePatientById(id: Int) = patientDao.deletePatientById(id)
+    override suspend fun deletePatientById(id: Int) = patientDao.deletePatientById(id)
+
 }
 
-class PatientViewModelFactory(private val repository: PatientRepository) :
+class PatientViewModelFactory(private val repository: PatientRepository, private val patientDeleteById: DeleteByIdInterface) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(PatientViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return PatientViewModel(repository) as T
+            return PatientViewModel(repository, patientDeleteById) as T
         }
         throw IllegalAccessException("Unknown ViewModel class")
     }
