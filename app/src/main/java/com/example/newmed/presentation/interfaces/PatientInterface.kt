@@ -8,11 +8,11 @@ interface PatientInterface {
 
     fun getAllPatient(): Flow<List<PatientModel>>
 
-    suspend fun addPatient(paient: PatientEntity)
+    suspend fun addPatient(patient: PatientEntity)
 
     suspend fun getPatientById(id: Int): PatientEntity
 
-    suspend fun updatePatient(paient: PatientEntity)
+    suspend fun updatePatient(patient: PatientEntity)
 
     suspend fun deleteAll()
 

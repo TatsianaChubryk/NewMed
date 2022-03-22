@@ -27,9 +27,9 @@ class PatientListAdapter(
                    clickListener.onClickPatient(patientModel)
                 }
 
-                binding.btnDel.setOnClickListener {
+                /*binding.btnDel.setOnClickListener {
                     deleteInterface.patientDeleteClick(patientModel.id)
-                }
+                }*/
             }
         }
     }

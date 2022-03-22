@@ -42,7 +42,7 @@ class PatientViewModel(private val repository: PatientInterface, private val del
 
     fun deletePatientById(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-           //repository.deletePatientById(id)
+           // repository.deletePatientById(id)
             deleteByIdInterface.patientDeleteClick(id)
         }
     }

@@ -7,7 +7,6 @@ import com.example.newmed.data.database.PatientDao
 import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.data.entity.asDomainModel
 import com.example.newmed.presentation.interfaces.DeleteByIdInterface
-import com.example.newmed.presentation.interfaces.PatientDeleteById
 import com.example.newmed.presentation.interfaces.PatientInterface
 import kotlinx.coroutines.flow.map
 
@@ -16,14 +15,14 @@ class PatientRepository(private val patientDao: PatientDao): PatientInterface {
     //вернет всех пациентов из БД
     override fun getAllPatient() = patientDao.getAllPatient().map { it.asDomainModel() }
 
-    override suspend fun addPatient(paient: PatientEntity) {
-        patientDao.insert(paient)
+    override suspend fun addPatient(patient: PatientEntity) {
+        patientDao.insert(patient)
     }
 
     override suspend fun getPatientById(id: Int) = patientDao.getPatientById(id)
 
-    override suspend fun updatePatient(paient: PatientEntity) {
-        patientDao.updatePatient(paient)
+    override suspend fun updatePatient(patient: PatientEntity) {
+        patientDao.updatePatient(patient)
     }
 
     override suspend fun deleteAll() = patientDao.deleteAll()
@@ -32,7 +31,7 @@ class PatientRepository(private val patientDao: PatientDao): PatientInterface {
 
 }
 
-class PatientViewModelFactory(private val repository: PatientRepository, private val patientDeleteById: DeleteByIdInterface) :
+class PatientViewModelFactory(private val repository: PatientInterface, private val patientDeleteById: DeleteByIdInterface) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(PatientViewModel::class.java)) {

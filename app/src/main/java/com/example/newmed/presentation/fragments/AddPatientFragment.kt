@@ -26,7 +26,7 @@ class AddPatientFragment : Fragment() {
 
 
     private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).repository)
+        PatientViewModelFactory((activity?.application as PatientApplication).deleteById)
     }
 
     override fun onCreateView(
