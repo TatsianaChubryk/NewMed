@@ -6,11 +6,12 @@ import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.database.PatientDao
 import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.data.entity.asDomainModel
-import com.example.newmed.presentation.interfaces.DeleteByIdInterface
+import com.example.newmed.domain.usecase.DeleteByIdUseCase
+//import com.example.newmed.presentation.interfaces.DeleteByIdInterface
 import com.example.newmed.presentation.interfaces.PatientInterface
 import kotlinx.coroutines.flow.map
 
-class PatientRepository(private val patientDao: PatientDao): PatientInterface {
+class PatientRepository(private val patientDao: PatientDao) : PatientInterface {
 
     //вернет всех пациентов из БД
     override fun getAllPatient() = patientDao.getAllPatient().map { it.asDomainModel() }
@@ -31,12 +32,15 @@ class PatientRepository(private val patientDao: PatientDao): PatientInterface {
 
 }
 
-class PatientViewModelFactory(private val repository: PatientInterface, private val patientDeleteById: DeleteByIdInterface) :
-    ViewModelProvider.Factory {
+class PatientViewModelFactory(
+    private val repository: PatientInterface,
+    private val deleteByIdUseCase: DeleteByIdUseCase
+) :
+    ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(PatientViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return PatientViewModel(repository, patientDeleteById) as T
+            return PatientViewModel(repository, deleteByIdUseCase) as T
         }
         throw IllegalAccessException("Unknown ViewModel class")
     }

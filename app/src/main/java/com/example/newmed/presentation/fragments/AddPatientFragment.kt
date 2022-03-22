@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
 import com.example.newmed.R
 import com.example.newmed.data.entity.PatientEntity
+import com.example.newmed.data.reposotiry.PatientRepository
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.databinding.FragmentAddPatientBinding
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
@@ -25,8 +26,15 @@ class AddPatientFragment : Fragment() {
    // private var binding: FragmentAddPatientBinding? = null
 
 
+   /* private val patientViewModel: PatientViewModel by viewModels {
+        PatientViewModelFactory((activity?.application as PatientApplication).repository)
+    }*/
+
     private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).deleteById)
+        PatientViewModelFactory(
+            ((requireActivity().application) as PatientApplication).repository,
+            ((requireActivity().application) as PatientApplication).deleteById
+        )
     }
 
     override fun onCreateView(

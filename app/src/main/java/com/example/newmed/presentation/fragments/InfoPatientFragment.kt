@@ -20,8 +20,15 @@ class InfoPatientFragment : Fragment() {
 
     private lateinit var binding: FragmentInfoPatientBinding
 
-    private val patientViewModel: PatientViewModel by viewModels {
+    /*private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory((activity?.application as PatientApplication).repository)
+    }*/
+
+    private val patientViewModel: PatientViewModel by viewModels {
+        PatientViewModelFactory(
+            ((requireActivity().application) as PatientApplication).repository,
+            ((requireActivity().application) as PatientApplication).deleteById
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

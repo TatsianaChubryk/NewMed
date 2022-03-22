@@ -17,8 +17,15 @@ class PriceFragment : Fragment() {
 
     private lateinit var binding: FragmentPriceBinding
 
-    private val patientViewModel: PatientViewModel by viewModels {
+    /*private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory((activity?.application as PatientApplication).repository)
+    }*/
+
+    private val patientViewModel: PatientViewModel by viewModels {
+        PatientViewModelFactory(
+            ((requireActivity().application) as PatientApplication).repository,
+            ((requireActivity().application) as PatientApplication).deleteById
+        )
     }
 
     private lateinit var adapter: PriceListAdapter

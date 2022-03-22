@@ -17,13 +17,12 @@ import com.example.newmed.databinding.FragmentPatientListBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
 import com.example.newmed.presentation.SwipeToDelete
-import com.example.newmed.presentation.interfaces.DeleteByIdInterface
 
 class PatientAllFragment : Fragment() {
 
     private lateinit var binding: FragmentPatientListBinding
 
-    private val patientViewModel: PatientViewModel by viewModels {
+/*    private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory((activity?.application as PatientApplication).repository,
             object : DeleteByIdInterface{
                 override suspend fun patientDeleteClick(id: Int) {
@@ -32,11 +31,18 @@ class PatientAllFragment : Fragment() {
                 }
 
             })
+    }*/
+
+    private val patientViewModel: PatientViewModel by viewModels {
+        PatientViewModelFactory(
+            ((requireActivity().application) as PatientApplication).repository,
+            ((requireActivity().application) as PatientApplication).deleteById
+        )
     }
 
     private lateinit var adapter: PatientListAdapter
 
-    override fun onCreateView(
+   override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,17 +64,13 @@ class PatientAllFragment : Fragment() {
                 ?.beginTransaction()
                 ?.replace(R.id.frame, InfoPatientFragment.newInstance(patientId = it.id))
                 ?.commit()
-        }, object : DeleteByIdInterface {
-            override suspend fun patientDeleteClick(id: Int) {
-                patientViewModel.deletePatientById(id)
-                Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()
-            }
-            /*override fun patientDeleteClick(id: Int) {
-                patientViewModel.deletePatientById(id)
-                Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()
-            }*/
+        })/*, object : DeleteByIdInterface {
+           override suspend fun patientDeleteClick(id: Int) {
+                 patientViewModel.deletePatientById(id)
+                 Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()
+             }
 
-        })
+       })*/
 
         binding.patientRecyclerView.adapter = adapter
 
@@ -82,7 +84,8 @@ class PatientAllFragment : Fragment() {
                     viewHolder: RecyclerView.ViewHolder,
                     direction: Int
                 ) {
-
+              /*     patientViewModel.deletePatientById(arguments?.getInt("patientId") ?: 0)
+                    Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()*/
                 }
             }
 
