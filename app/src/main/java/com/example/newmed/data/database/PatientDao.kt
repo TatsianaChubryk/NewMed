@@ -3,6 +3,7 @@ package com.example.newmed.data.database
 import androidx.room.*
 import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.data.entity.PatientEntity.Companion.COLUMN_ID
+import com.example.newmed.data.entity.PatientEntity.Companion.COLUMN_PRICEPATIENT
 import com.example.newmed.data.entity.PatientEntity.Companion.TABLE_NAME
 import kotlinx.coroutines.flow.Flow
 
@@ -24,7 +25,9 @@ interface PatientDao {
     @Query("DELETE FROM $TABLE_NAME")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM $TABLE_NAME" +
-            " WHERE $COLUMN_ID = :id")
+    @Query("DELETE FROM $TABLE_NAME WHERE $COLUMN_ID = :id")
     suspend fun deletePatientById(id: Int)
+
+    @Query("SELECT * FROM $TABLE_NAME WHERE $COLUMN_PRICEPATIENT = :price")
+    suspend fun getPrice(price: Int): PatientEntity
 }

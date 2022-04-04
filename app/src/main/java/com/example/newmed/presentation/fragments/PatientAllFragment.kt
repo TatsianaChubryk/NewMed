@@ -1,14 +1,15 @@
 package com.example.newmed.presentation.fragments
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.PatientApplication
 import com.example.newmed.R
 import com.example.newmed.presentation.adapter.PatientListAdapter
@@ -16,33 +17,25 @@ import com.example.newmed.presentation.adapter.PatientListener
 import com.example.newmed.databinding.FragmentPatientListBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
-import com.example.newmed.presentation.SwipeToDelete
+import com.example.newmed.presentation.interfaces.CallInterface
+import com.example.newmed.presentation.interfaces.DeleteByIdInterface
+import kotlinx.android.synthetic.main.item_patient.*
 
 class PatientAllFragment : Fragment() {
 
     private lateinit var binding: FragmentPatientListBinding
 
-/*    private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).repository,
-            object : DeleteByIdInterface{
-                override suspend fun patientDeleteClick(id: Int) {
-                    patientViewModel.deletePatientById(id)
-                    Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()
-                }
-
-            })
-    }*/
-
     private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory(
-            ((requireActivity().application) as PatientApplication).repository,
-            ((requireActivity().application) as PatientApplication).deleteById
+            ((requireActivity().application) as PatientApplication).repository
         )
+        //((requireActivity().application) as PatientApplication).deleteById
+
     }
 
     private lateinit var adapter: PatientListAdapter
 
-   override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,33 +57,48 @@ class PatientAllFragment : Fragment() {
                 ?.beginTransaction()
                 ?.replace(R.id.frame, InfoPatientFragment.newInstance(patientId = it.id))
                 ?.commit()
-        })/*, object : DeleteByIdInterface {
-           override suspend fun patientDeleteClick(id: Int) {
-                 patientViewModel.deletePatientById(id)
-                 Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()
-             }
+        }, object : DeleteByIdInterface {
+            override fun patientDeleteClick(id: Int) {
+                patientViewModel.deletePatientById(id)
+            }
+        }, object : CallInterface {
+            override fun callInterface(id: Int) {
+                patientViewModel.callPatient(id)
+                callPatient()
+            }
 
-       })*/
+        })
 
         binding.patientRecyclerView.adapter = adapter
 
         patientViewModel.allPatient.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
+        checkPermission()
 
-        binding.patientRecyclerView.apply {
-            val swipeDelete = object : SwipeToDelete(context) {
-                override fun onSwiped(
-                    viewHolder: RecyclerView.ViewHolder,
-                    direction: Int
-                ) {
-              /*     patientViewModel.deletePatientById(arguments?.getInt("patientId") ?: 0)
-                    Toast.makeText(requireContext(), "Запись удалена", Toast.LENGTH_LONG).show()*/
-                }
-            }
+    }
 
-            val touchHelper = ItemTouchHelper(swipeDelete)
-            touchHelper.attachToRecyclerView(this)
+    private fun checkPermission() {
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.CALL_PHONE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(android.Manifest.permission.CALL_PHONE),
+                101
+            )
+        }
+    }
+
+    private fun callPatient() {
+        patientViewModel.getPatientById(arguments?.getInt("patientId") ?: 0)
+        val phoneNumber = tvNumberCall.text.toString()
+        if (phoneNumber.isNotEmpty()) {
+            val callIntent = Intent(Intent.ACTION_CALL)
+            callIntent.data = Uri.parse("tel:$phoneNumber")
+            startActivity(callIntent)
         }
     }
 

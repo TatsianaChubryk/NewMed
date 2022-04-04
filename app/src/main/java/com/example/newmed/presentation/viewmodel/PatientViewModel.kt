@@ -4,16 +4,12 @@ import androidx.lifecycle.*
 import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.domain.model.PatientModel
 import com.example.newmed.data.reposotiry.PatientRepository
-import com.example.newmed.databinding.ItemPatientBinding
-import com.example.newmed.domain.usecase.DeleteByIdUseCase
-//import com.example.newmed.presentation.interfaces.DeleteByIdInterface
-import com.example.newmed.presentation.interfaces.PatientInterface
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class PatientViewModel(
-    private val repository: PatientInterface,
-    private val deleteByIdUseCase: DeleteByIdUseCase
+    private val repository: PatientRepository/*,
+    private val deleteByIdUseCase: DeleteByIdUseCase*/
 ) : ViewModel() {
 
     val allPatient: LiveData<List<PatientModel>> = repository.getAllPatient().asLiveData()
@@ -47,9 +43,21 @@ class PatientViewModel(
 
     fun deletePatientById(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-             //repository.deletePatientById(id)
+             repository.deletePatientById(id)
             //deleteByIdInterface.patientDeleteClick(id)
-            deleteByIdUseCase.patientDeleteClick(id)
+            //deleteByIdUseCase.patientDeleteClick(id)
+        }
+    }
+
+    fun callPatient(id: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.callPatient(id)
+        }
+    }
+
+    fun getPrice(price: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getPrice(price)
         }
     }
 }

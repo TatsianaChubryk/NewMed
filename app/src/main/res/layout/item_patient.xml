@@ -9,7 +9,7 @@
     app:cardCornerRadius="15dp"
     app:cardElevation="8dp">
 
-    <RelativeLayout
+   <RelativeLayout
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -49,22 +49,22 @@
             app:layout_constraintStart_toEndOf="@+id/tvData"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvNumberCall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNameCall"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="70dp"
-            android:gravity="center"
-            android:text="+375(29)64-77-142"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.116"
-            app:layout_constraintTop_toTopOf="parent" />
+       <TextView
+           android:id="@+id/tvNumberCall"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/tvNameCall"
+           android:layout_alignParentStart="true"
+           android:layout_alignParentEnd="true"
+           android:layout_marginStart="70dp"
+           android:layout_marginTop="12dp"
+           android:layout_marginEnd="70dp"
+           android:gravity="center"
+           android:text="+375(29)64-77-142"
+           android:textSize="18sp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.116"
+           app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvAddress"
@@ -85,16 +85,30 @@
             app:layout_constraintTop_toBottomOf="@+id/tvNameCall"
             app:layout_constraintVertical_bias="0.875" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="6dp"
-            android:text="del" />
+       <ImageView
+           android:id="@+id/btnDel"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentStart="true"
+           android:layout_alignParentTop="true"
+           android:layout_alignParentBottom="true"
+           android:layout_marginStart="22dp"
+           android:layout_marginTop="47dp"
+           android:layout_marginBottom="55dp"
+           android:src="@drawable/ic_delete" />
 
-    </RelativeLayout>
+       <ImageView
+           android:id="@+id/btnCall"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentTop="true"
+           android:layout_alignParentEnd="true"
+           android:layout_alignParentBottom="true"
+           android:layout_marginTop="48dp"
+           android:layout_marginEnd="25dp"
+           android:layout_marginBottom="54dp"
+           android:src="@drawable/ic_call" />
+
+   </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

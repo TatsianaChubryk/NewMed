@@ -373,10 +373,10 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
                     android:text="@string/cmt"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbDiabetes"
@@ -387,10 +387,10 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/sd"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbHypertension"
@@ -401,10 +401,10 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/ag"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbIschemia"
@@ -415,10 +415,10 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/ibs"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbArrhythmia"
@@ -429,10 +429,10 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/aritm"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbGemma"
@@ -443,10 +443,10 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="11dp"
                     android:text="@string/bp"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/cbCirrhosis"
@@ -458,350 +458,30 @@
                     android:layout_marginTop="11dp"
                     android:layout_marginBottom="25dp"
                     android:text="@string/cp"
+                    android:theme="@style/MyCheckBox"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:theme="@style/MyCheckBox"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </RelativeLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAddPatient"
-                android:layout_width="212dp"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/line3"
-                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="179dp"
+                android:layout_gravity="bottom|end"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="15dp"
-                android:text="@string/btn_add_patient"
+                android:elevation="10dp"
+                android:src="@drawable/ic_save"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <RelativeLayout
-                android:id="@+id/line5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/line4"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/style_menu"
-                android:backgroundTint="@color/white"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/line4"
-                tools:ignore="MissingConstraints"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/tvMagnia"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/magnia" />
-
-                <EditText
-                    android:id="@+id/etMagnia"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="55dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvRingera"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvMagnia"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/ringera" />
-
-                <EditText
-                    android:id="@+id/etRingera"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etMagnia"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="100dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvGaloperidol"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvRingera"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/galoperidol" />
-
-                <EditText
-                    android:id="@+id/etGaloperidol"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etRingera"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="145dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvDimedrol"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvGaloperidol"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/dimedrol" />
-
-                <EditText
-                    android:id="@+id/etDimedrol"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etGaloperidol"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="190dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvFenibut"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvDimedrol"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/fenibut" />
-
-                <EditText
-                    android:id="@+id/etFenibut"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etDimedrol"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="235dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvTiamin"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvFenibut"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/tiamin" />
-
-                <EditText
-                    android:id="@+id/etTiamin"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etFenibut"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="275dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvUnitiol"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvTiamin"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/unitiol" />
-
-                <EditText
-                    android:id="@+id/etUnitiol"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etTiamin"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="325dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvSonnat"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvUnitiol"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/sonnat" />
-
-                <EditText
-                    android:id="@+id/etSonnat"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etUnitiol"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="370dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvKarbazipin"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvSonnat"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/karbazipin" />
-
-                <EditText
-                    android:id="@+id/etKarbazipin"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etSonnat"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="415dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvNormogidron"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvKarbazipin"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/normogidron" />
-
-                <EditText
-                    android:id="@+id/etNormogidron"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etKarbazipin"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="460dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@color/greyView" />
-
-                <TextView
-                    android:id="@+id/tvAnaprilin"
-                    style="@style/MyTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvNormogidron"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp"
-                    android:text="@string/anaprilin" />
-
-                <EditText
-                    android:id="@+id/etAnaprilin"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/etNormogidron"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="15dp"
-                    android:gravity="center" />
-
-            </RelativeLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/primary_white"
+                android:backgroundTint="@color/light_blue_200"/>
 
         </RelativeLayout>
 

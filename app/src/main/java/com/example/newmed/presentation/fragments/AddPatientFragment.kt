@@ -12,7 +12,6 @@ import androidx.fragment.app.viewModels
 import com.example.newmed.PatientApplication
 import com.example.newmed.R
 import com.example.newmed.data.entity.PatientEntity
-import com.example.newmed.data.reposotiry.PatientRepository
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.databinding.FragmentAddPatientBinding
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
@@ -23,20 +22,17 @@ class AddPatientFragment : Fragment() {
 
     private lateinit var binding: FragmentAddPatientBinding
 
-   // private var binding: FragmentAddPatientBinding? = null
-
-
-   /* private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).repository)
-    }*/
-
     private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory(
-            ((requireActivity().application) as PatientApplication).repository,
-            ((requireActivity().application) as PatientApplication).deleteById
-        )
+        PatientViewModelFactory((activity?.application as PatientApplication).repository)
     }
 
+    /*private val patientViewModel: PatientViewModel by viewModels {
+        PatientViewModelFactory(
+            ((requireActivity().application) as PatientApplication).repository)
+            //((requireActivity().application) as PatientApplication).deleteById
+
+    }
+*/
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,7 +52,7 @@ class AddPatientFragment : Fragment() {
         insertNameAndPhone()
         insertPrise()
 
-        binding.btnAddPatient.setOnClickListener { addPatient() }
+        binding.saveButton.setOnClickListener { addPatient() }
     }
 
     private fun addPatient() {
@@ -90,9 +86,9 @@ class AddPatientFragment : Fragment() {
     }
 
     private fun insertPrise() {
-        val priceDay = "165"
-        val priceNight = "175"
-        val etPrice = binding.etPricePatient.editText //обращаться к editText и менять его напрямую
+        val priceDay = "180"
+        val priceNight = "230"
+        val etPrice = binding.etPricePatient.editText
         etPrice?.text = Editable.Factory.getInstance().newEditable(priceDay)
 
         binding.switchDayNight.setOnCheckedChangeListener { _, isChecked ->

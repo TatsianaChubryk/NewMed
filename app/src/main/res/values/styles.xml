@@ -11,6 +11,10 @@
         <item name="colorControlActivated">@color/light_blue_200</item>
     </style>
 
+    <style name="MyBtn">MyBtn
+        <item name="android:background">@color/light_blue</item>
+        <item name="android:textColor">@color/grey2</item>
+    </style>
 
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>

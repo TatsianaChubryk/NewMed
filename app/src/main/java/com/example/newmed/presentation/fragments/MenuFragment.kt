@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.commit
 import com.example.newmed.R
 import com.example.newmed.databinding.FragmentMenuBinding
+import com.example.newmed.presentation.interfaces.DeleteByIdInterface
 
 class MenuFragment : Fragment(), View.OnClickListener {
 

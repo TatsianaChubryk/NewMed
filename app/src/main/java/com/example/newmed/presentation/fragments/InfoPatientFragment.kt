@@ -1,11 +1,16 @@
 package com.example.newmed.presentation.fragments
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -15,6 +20,9 @@ import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.databinding.FragmentInfoPatientBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
+import kotlinx.android.synthetic.main.fragment_info_patient.*
+import kotlinx.android.synthetic.main.item_patient.*
+import java.util.jar.Manifest
 
 class InfoPatientFragment : Fragment() {
 
@@ -26,9 +34,9 @@ class InfoPatientFragment : Fragment() {
 
     private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory(
-            ((requireActivity().application) as PatientApplication).repository,
+            ((requireActivity().application) as PatientApplication).repository)/*,
             ((requireActivity().application) as PatientApplication).deleteById
-        )
+        )*/
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +71,16 @@ class InfoPatientFragment : Fragment() {
         isCheckedSwitch()
 
         binding.btnEditPatient.setOnClickListener { updatePatient() }
+        binding.textNC.setOnClickListener { callPatient() }
+        checkPermission()
     }
+
+    private fun checkPermission() {
+        if (ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.CALL_PHONE), 101)
+        }
+    }
+
 
     private fun getPatient() {
         patientViewModel.patient.observe(viewLifecycleOwner) {
@@ -177,6 +194,19 @@ class InfoPatientFragment : Fragment() {
             }
         }
     }
+
+    private fun callPatient() {
+        val phoneNumber = numberPatient.text.toString()
+        if (phoneNumber.isNotEmpty()) {
+            val callIntent = Intent(Intent.ACTION_CALL)
+            callIntent.data = Uri.parse("tel:$phoneNumber")
+            startActivity(callIntent)
+        }
+    }
+
+   /* override fun onBackPressed() {
+        activity?.onBackPressed()
+    }*/
 
     override fun onDestroy() {
         super.onDestroy()

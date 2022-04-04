@@ -40,6 +40,7 @@ abstract class SwipeToDelete(context: Context): ItemTouchHelper.SimpleCallback(0
             isCurrentlyActive
         )
             .addBackgroundColor(backgroundColor)
+            //.addActionIcon(R.drawable.ic_delete)
             .create()
             .decorate()
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
