@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -20,13 +19,14 @@ import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.databinding.FragmentInfoPatientBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
+import com.example.newmed.presentation.interfaces.OnBackInterface
 import kotlinx.android.synthetic.main.fragment_info_patient.*
-import kotlinx.android.synthetic.main.item_patient.*
-import java.util.jar.Manifest
 
-class InfoPatientFragment : Fragment() {
+class InfoPatientFragment : Fragment(), OnBackInterface {
 
     private lateinit var binding: FragmentInfoPatientBinding
+
+    var running = false
 
     /*private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory((activity?.application as PatientApplication).repository)
@@ -62,6 +62,7 @@ class InfoPatientFragment : Fragment() {
     ): View {
         binding = FragmentInfoPatientBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -204,12 +205,14 @@ class InfoPatientFragment : Fragment() {
         }
     }
 
-   /* override fun onBackPressed() {
-        activity?.onBackPressed()
-    }*/
-
-    override fun onDestroy() {
+    /*override fun onDestroy() {
         super.onDestroy()
         binding
+    }*/
+
+    override fun onBackPressed(): Boolean {
+
+            return true
+
     }
 }

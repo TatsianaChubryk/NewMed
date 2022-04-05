@@ -19,9 +19,10 @@ import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
 import com.example.newmed.presentation.interfaces.CallInterface
 import com.example.newmed.presentation.interfaces.DeleteByIdInterface
+import com.example.newmed.presentation.interfaces.OnBackInterface
 import kotlinx.android.synthetic.main.item_patient.*
 
-class PatientAllFragment : Fragment() {
+class PatientAllFragment : Fragment(), CallInterface, OnBackInterface {
 
     private lateinit var binding: FragmentPatientListBinding
 
@@ -102,8 +103,17 @@ class PatientAllFragment : Fragment() {
         }
     }
 
+    override fun callInterface(id: Int) {
+       patientViewModel.callPatient(id)
+        callPatient()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         binding
+    }
+
+    override fun onBackPressed(): Boolean {
+        return false
     }
 }
