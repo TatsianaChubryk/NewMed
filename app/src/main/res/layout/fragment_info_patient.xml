@@ -66,14 +66,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/line3"
                 tools:ignore="MissingConstraints">
 
+                <EditText
+                    android:id="@+id/tvData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="bottom"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/switchActive"
                     android:layout_width="wrap_content"
                     android:layout_height="31dp"
-                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="15dp"
                     android:text="@string/active"
                     android:textSize="16sp"
                     android:theme="@style/MyCheckBox" />
@@ -537,20 +549,6 @@
                 android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/tvData"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="15dp"
-                    android:gravity="center"
-                    android:text="20.09.21"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
                     android:id="@+id/tvNameCall"
                     android:layout_width="140dp"
                     android:layout_height="35dp"
@@ -559,12 +557,10 @@
                     android:layout_marginStart="31dp"
                     android:layout_marginTop="13dp"
                     android:layout_marginEnd="71dp"
-                    android:layout_toEndOf="@+id/tvData"
                     android:gravity="center"
                     android:text="АлексейЧубр"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/tvData"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView

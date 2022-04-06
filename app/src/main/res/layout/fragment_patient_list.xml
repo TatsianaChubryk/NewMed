@@ -18,19 +18,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_patient" />
 
-    <!--<com.google.android.material.button.MaterialButton
-        android:id="@+id/btnDel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="6dp"
-        android:text="del"
-        android:visibility="visible"/>-->
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

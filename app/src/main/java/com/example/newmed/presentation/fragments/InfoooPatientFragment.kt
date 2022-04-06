@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,11 +20,12 @@ import com.example.newmed.data.entity.PatientEntity
 import com.example.newmed.databinding.FragmentInfoPatientBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
+import com.example.newmed.databinding.FragmentInfooooPatientBinding
 import kotlinx.android.synthetic.main.fragment_info_patient.*
 
-class InfoPatientFragment : Fragment() {
+class InfoooPatientFragment : Fragment() {
 
-    private lateinit var binding: FragmentInfoPatientBinding
+    private lateinit var binding: FragmentInfooooPatientBinding
 
     var running = false
 
@@ -45,10 +47,10 @@ class InfoPatientFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(patientId: Int): InfoPatientFragment {
+        fun newInstance(patientId: Int): InfoooPatientFragment {
             val args = Bundle()
             args.putInt("patientId", patientId)
-            val fragment = InfoPatientFragment()
+            val fragment = InfoooPatientFragment()
             fragment.arguments = args
             return fragment
         }
@@ -59,7 +61,7 @@ class InfoPatientFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInfoPatientBinding.inflate(inflater, container, false)
+        binding = FragmentInfooooPatientBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -68,10 +70,11 @@ class InfoPatientFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getPatient()
-        isCheckedSwitch()
+        //isCheckedSwitch()
 
-        binding.btnEditPatient.setOnClickListener { updatePatient() }
-        binding.textNC.setOnClickListener { callPatient() }
+        //binding.btnEditPatient.setOnClickListener { updatePatient() }
+        binding.imgNumberCall.setOnClickListener { callPatient() }
+        binding.imgNumber.setOnClickListener { callPatient() }
         checkPermission()
     }
 
@@ -86,7 +89,22 @@ class InfoPatientFragment : Fragment() {
         patientViewModel.patient.observe(viewLifecycleOwner) {
             binding.tvData.setText(it.date)
             binding.switchActive.isChecked = it.active
-            binding.tvNameCall.text = it.nameCall
+            binding.etNameCall.editText?.setText(it.nameCall)
+            binding.etNumberCall.editText?.setText(it.numberCall)
+            binding.etAddress.editText?.setText(it.addressPatient)
+
+            binding.etPrice.editText?.text =
+                Editable.Factory.getInstance().newEditable(it.pricePatient.toString())
+            if (it.dayNight) {
+                binding.switchDayNight.isChecked = true
+                binding.imgDay.isVisible = false
+                binding.imgNight.isVisible = true
+            } else {
+                binding.switchDayNight.isChecked = false
+                binding.imgDay.isVisible = true
+                binding.imgNight.isVisible = false
+            }
+            /*binding.tvNameCall.text = it.nameCall
             binding.tvNumberCall.text = it.numberCall
             binding.tvAddress.text = it.addressPatient
             binding.namePatient.text = Editable.Factory.getInstance().newEditable(it.namePatient)
@@ -97,7 +115,7 @@ class InfoPatientFragment : Fragment() {
             if (it.alko) {
                 binding.tvDiagnosis.text = "Синдром отмены от алкоголя"
             } else
-                binding.tvDiagnosis.text = "Синдром отмены от наркотических средств"
+                binding.tvDiagnosis.text = "Синдром отмены от наркотических средств"*/
 
             binding.cbTraumaticBrain.isChecked = it.traumaticBrain
             binding.cbDiabetes.isChecked = it.diabetes
@@ -106,7 +124,7 @@ class InfoPatientFragment : Fragment() {
             binding.cbArrhythmia.isChecked = it.arrhytmia
             binding.cbGemma.isChecked = it.gemma
             binding.cbCirrhosis.isChecked = it.cirrhosis
-            binding.etDistance.text =
+      /*      binding.etDistance.text =
                 Editable.Factory.getInstance().newEditable(it.distance.toString())
             binding.etTime.text = Editable.Factory.getInstance().newEditable(it.time.toString())
             binding.etMin.text = Editable.Factory.getInstance().newEditable(it.min.toString())
@@ -120,11 +138,11 @@ class InfoPatientFragment : Fragment() {
                 binding.switchDayNight.isChecked = false
                 binding.imgDay.isVisible = true
                 binding.imgNight.isVisible = false
-            }
+            }*/
         }
     }
 
-    private fun updatePatient() {
+   /* private fun updatePatient() {
         val data = binding.tvData.text.toString()
         val active = binding.switchActive.isChecked
         val nameCall = binding.tvNameCall.text.toString()
@@ -172,9 +190,9 @@ class InfoPatientFragment : Fragment() {
         )
         patientViewModel.updatePatient(update)
         Toast.makeText(requireContext(), getString(R.string.update_info), Toast.LENGTH_SHORT).show()
-    }
+    }*/
 
-    private fun isCheckedSwitch() {
+   /* private fun isCheckedSwitch() {
 
         binding.switchVyzov.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -193,10 +211,11 @@ class InfoPatientFragment : Fragment() {
                 binding.imgNight.isVisible = false
             }
         }
-    }
+    }*/
 
     private fun callPatient() {
-        val phoneNumber = numberPatient.text.toString()
+        //val phoneNumber = numberPatient.text.toString()
+        val phoneNumber = binding.etNumberCall.editText?.text.toString()
         if (phoneNumber.isNotEmpty()) {
             val callIntent = Intent(Intent.ACTION_CALL)
             callIntent.data = Uri.parse("tel:$phoneNumber")

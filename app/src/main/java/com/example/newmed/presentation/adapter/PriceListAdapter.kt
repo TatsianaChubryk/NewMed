@@ -11,7 +11,7 @@ import com.example.newmed.databinding.ItemPriceBinding
 import com.example.newmed.domain.model.PatientModel
 import kotlinx.android.synthetic.main.item_price.view.*
 
-class PriceListAdapter (
+class PriceListAdapter(
     private val clickListener: PriceListener
 ) : ListAdapter<PatientModel, PriceListAdapter.PriceHolder>(PriceDiffCallback()) {
 
@@ -22,11 +22,11 @@ class PriceListAdapter (
         fun bind(patientModel: PatientModel, clickListener: PriceListener) {
             val price = patientModel.pricePatient
             binding.apply {
-                tvNum.text =(position + 1).toString()
+                tvNum.text = (position + 1).toString()
                 tvData.text = patientModel.date
                 if (patientModel.active) {
                     tvActive.text = "актив"
-                    itemView.cardView.setBackgroundColor(Color.argb(60,129,212,250))
+                    itemView.cardView.setBackgroundColor(Color.argb(60, 129, 212, 250))
                 } else
                     tvActive.text = ""
 
@@ -43,6 +43,13 @@ class PriceListAdapter (
                 tvDistance.text = patientModel.distance.toString()
                 tvTime.text = patientModel.time.toString()
                 tvMin.text = patientModel.min.toString()
+
+              /*  val pr = patientModel.pricePatient
+                var sum = 0
+                for (i in pr .. pr) {
+                    sum += i
+                }
+                binding.tvDistance.text = sum.toString()*/
             }
         }
     }

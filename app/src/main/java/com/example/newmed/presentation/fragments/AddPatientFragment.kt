@@ -62,7 +62,7 @@ class AddPatientFragment : Fragment() {
             binding.switchActive.isChecked,
             binding.etNameCall.editText?.text.toString(),
             binding.etNumberCall.editText?.text.toString(),
-            binding.etAddressPatient.editText?.text.toString(),
+            binding.etAddress.editText?.text.toString(),
             binding.etNamePatient.editText?.text.toString(),
             binding.etAgePatient.editText?.text.toString(),
             binding.etNumberPatient.editText?.text.toString(),

@@ -112,4 +112,8 @@ dependencies {
     implementation "org.koin:koin-androidx-scope:$koin_version"
 
     implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
+
+    // Kotlin
+    implementation("androidx.navigation:navigation-fragment-ktx:2.4.1")
+    implementation("androidx.navigation:navigation-ui-ktx:2.4.1")
 }

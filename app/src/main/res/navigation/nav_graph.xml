@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.newmed.presentation.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_priceFragment"
+            app:destination="@id/priceFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_addPatientFragment"
+            app:destination="@id/addPatientFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_patientAllFragment"
+            app:destination="@id/patientAllFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPatientFragment"
+        android:name="com.example.newmed.presentation.fragments.AddPatientFragment"
+        android:label="fragment_add_patient"
+        tools:layout="@layout/fragment_add_patient" >
+        <action
+            android:id="@+id/action_addPatientFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/priceFragment"
+        android:name="com.example.newmed.presentation.fragments.PriceFragment"
+        android:label="fragment_price"
+        tools:layout="@layout/fragment_price" >
+        <action
+            android:id="@+id/action_priceFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientAllFragment"
+        android:name="com.example.newmed.presentation.fragments.PatientAllFragment"
+        android:label="fragment_patient_list"
+        tools:layout="@layout/fragment_patient_list" >
+        <action
+            android:id="@+id/action_patientAllFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_patientAllFragment_to_infoPatientFragment"
+            app:destination="@id/infoPatientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoPatientFragment"
+        android:name="com.example.newmed.presentation.fragments.InfoPatientFragment"
+        android:label="fragment_info_patient"
+        tools:layout="@layout/fragment_info_patient" >
+        <action
+            android:id="@+id/action_infoPatientFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>

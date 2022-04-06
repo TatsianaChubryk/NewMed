@@ -2,13 +2,17 @@ package com.example.newmed.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.example.newmed.MAIN
 import com.example.newmed.R
 import com.example.newmed.databinding.ActivityMainBinding
 import com.example.newmed.presentation.fragments.MenuFragment
-import com.example.newmed.presentation.interfaces.OnBackInterface
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,12 +22,5 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.frame, MenuFragment(), "Start")
             .commit()
-    }
-
-    override fun onBackPressed() {
-          val fragment = this.supportFragmentManager.findFragmentById(R.id.frame)
-        (fragment as? OnBackInterface)?.onBackPressed()?.not()?.let {
-            super.onBackPressed()
-        }
     }
 }

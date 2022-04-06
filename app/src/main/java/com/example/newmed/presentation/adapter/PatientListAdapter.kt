@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.domain.model.PatientModel
 import com.example.newmed.databinding.ItemPatientBinding
-import com.example.newmed.presentation.interfaces.CallInterface
 import com.example.newmed.presentation.interfaces.DeleteByIdInterface
 import kotlin.coroutines.coroutineContext
 
@@ -42,7 +41,7 @@ class PatientListAdapter(
                 }
 
                 binding.btnCall.setOnClickListener {
-                    callInterface.callInterface(patientModel.id)
+                    callInterface.onCall(patientModel.numberCall)
                 }
             }
         }
@@ -70,4 +69,8 @@ class PatientDiffCallback : DiffUtil.ItemCallback<PatientModel>() {
 
 class PatientListener(val clickListener: (patientModel: PatientModel) -> Unit) {
     fun onClickPatient(patientModel: PatientModel) = clickListener(patientModel)
+}
+
+class CallInterface(val сallInterface: (number: String) -> Unit) {
+    fun onCall(number: String) = сallInterface(number)
 }

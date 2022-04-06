@@ -17,12 +17,10 @@ import com.example.newmed.presentation.adapter.PatientListener
 import com.example.newmed.databinding.FragmentPatientListBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
-import com.example.newmed.presentation.interfaces.CallInterface
+import com.example.newmed.presentation.adapter.CallInterface
 import com.example.newmed.presentation.interfaces.DeleteByIdInterface
-import com.example.newmed.presentation.interfaces.OnBackInterface
-import kotlinx.android.synthetic.main.item_patient.*
 
-class PatientAllFragment : Fragment(), CallInterface, OnBackInterface {
+class PatientAllFragment : Fragment() {
 
     private lateinit var binding: FragmentPatientListBinding
 
@@ -56,19 +54,22 @@ class PatientAllFragment : Fragment(), CallInterface, OnBackInterface {
 
             activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.frame, InfoPatientFragment.newInstance(patientId = it.id))
+                ?.replace(R.id.frame, InfoooPatientFragment.newInstance(patientId = it.id))
                 ?.commit()
         }, object : DeleteByIdInterface {
             override fun patientDeleteClick(id: Int) {
                 patientViewModel.deletePatientById(id)
             }
-        }, object : CallInterface {
+        }, CallInterface {
+            callPatient(it)
+        }
+        )/*, object : CallInterface {
             override fun callInterface(id: Int) {
-                patientViewModel.callPatient(id)
+                //patientViewModel.callPatient(id)
                 callPatient()
             }
 
-        })
+        })*/
 
         binding.patientRecyclerView.adapter = adapter
 
@@ -93,27 +94,23 @@ class PatientAllFragment : Fragment(), CallInterface, OnBackInterface {
         }
     }
 
-    private fun callPatient() {
-        patientViewModel.getPatientById(arguments?.getInt("patientId") ?: 0)
-        val phoneNumber = tvNumberCall.text.toString()
-        if (phoneNumber.isNotEmpty()) {
+    private fun callPatient(number: String) {
+        //patientViewModel.getPatientById(arguments?.getInt("patientId") ?: 0)
+        //val phoneNumber = tvNumberCall.text.toString()
+       // if (phoneNumber.isNotEmpty()) {
             val callIntent = Intent(Intent.ACTION_CALL)
-            callIntent.data = Uri.parse("tel:$phoneNumber")
+            callIntent.data = Uri.parse("tel:$number")
             startActivity(callIntent)
-        }
+        //}
     }
 
-    override fun callInterface(id: Int) {
+   /* override fun callInterface(id: Int) {
        patientViewModel.callPatient(id)
         callPatient()
-    }
+    }*/
 
     override fun onDestroy() {
         super.onDestroy()
         binding
-    }
-
-    override fun onBackPressed(): Boolean {
-        return false
     }
 }

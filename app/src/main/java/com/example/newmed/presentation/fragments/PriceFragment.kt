@@ -56,23 +56,5 @@ class PriceFragment : Fragment() {
         binding.btnClear.setOnClickListener {
             patientViewModel.clearDB()
         }
-/*
-        val mRecyclerView: RecyclerView? = null
-        ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(mRecyclerView)
-
-        val itemTouchHelperCallback: ItemTouchHelper.SimpleCallback =
-            object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
-               override fun onMove(
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    target: RecyclerView.ViewHolder
-                ): Boolean {
-                    return false
-                }
-
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                   // deleteNote(mNotes.get(viewHolder.adapterPosition))
-                }
-            }*/
     }
 }
