@@ -17,6 +17,7 @@ class PriceListAdapter(
     private val clickListener: PriceListener
 ) : ListAdapter<PatientModel, PriceListAdapter.PriceHolder>(PriceDiffCallback()) {
 
+   private var patientList  = emptyList<PatientModel>()
 
     class PriceHolder(private val binding: ItemPriceBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -45,19 +46,25 @@ class PriceListAdapter(
                 tvDistance.text = patientModel.distance.toString()
                 tvTime.text = patientModel.time.toString()
                 tvMin.text = patientModel.min.toString()
-
-               //val arrayPrice = arrayOf(patientModel.pricePatient)
-
-                //val arrayPrice: LiveData<List<PatientModel>>
-               // var sum = 0
-                //for (i in arrayPrice.indices){
-                   // println(arrayPrice.sum())
-                    /*sum += i
-                    println("i = $i, value = ${arrayPrice[i]}")
-                    println("sum = $sum")*/
-                }
             }
         }
+    }
+
+    fun setData(trans:List<PatientModel>){
+        this.patientList = trans
+        notifyDataSetChanged()
+    }
+
+    fun totalSum():Int{
+        var length = patientList.size - 1
+        var sum = 0
+        while (length != -1) {
+            sum += patientList[length].pricePatient
+            length -= 1
+        }
+        return sum
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PriceHolder {
         val binding = ItemPriceBinding.inflate(LayoutInflater.from(parent.context), parent, false)

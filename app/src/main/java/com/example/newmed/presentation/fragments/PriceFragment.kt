@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.PatientApplication
+import com.example.newmed.R
 import com.example.newmed.presentation.adapter.PriceListAdapter
 import com.example.newmed.presentation.adapter.PriceListener
 import com.example.newmed.databinding.FragmentPriceBinding
@@ -17,6 +18,7 @@ import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
 import com.example.newmed.domain.model.PatientModel
 import com.example.newmed.presentation.SwipeToDelete
+import kotlinx.android.synthetic.main.fragment_price.*
 import kotlinx.android.synthetic.main.item_price.view.*
 
 class PriceFragment : Fragment() {
@@ -44,6 +46,7 @@ class PriceFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -53,6 +56,8 @@ class PriceFragment : Fragment() {
 
         patientViewModel.allPatient.observe(viewLifecycleOwner) {
             adapter.submitList(it)
+            adapter.setData(it)
+            tvBalance.text = adapter.totalSum().toString()
         }
 
         //очищаем полностью БД

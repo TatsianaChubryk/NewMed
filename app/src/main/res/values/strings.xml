@@ -67,4 +67,5 @@
     <string name="distance">Расстояние</string>
     <string name="hour">Часы</string>
     <string name="min">Минуты</string>
+    <string name="sum">Сумма:</string>
 </resources>

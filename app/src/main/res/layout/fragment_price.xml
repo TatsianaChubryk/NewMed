@@ -15,27 +15,35 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/sumPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
+            android:id="@+id/tvSum"
+            android:layout_width="56dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginStart="100dp"
-            android:textColor="@color/black"
-            android:textSize="18dp"/>
+            android:text="@string/sum"
+            android:textColor="@color/grey"
+            android:textSize="14dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnClear"
-            style="@style/Base.CardView"
+        <TextView
+            android:id="@+id/tvBalance"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/clearSpisok"
-            android:textColor="@color/black"/>
+            android:layout_height="36dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="1850"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <ImageView
+            android:id="@+id/btnClear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_delete"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"/>
 
     </LinearLayout>
 
