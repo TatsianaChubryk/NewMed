@@ -44,12 +44,10 @@ class PatientViewModel(
     fun deletePatientById(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
              repository.deletePatientById(id)
-            //deleteByIdInterface.patientDeleteClick(id)
-            //deleteByIdUseCase.patientDeleteClick(id)
         }
     }
 
-    fun callPatient(id: Int) {
+   /* fun callPatient(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.callPatient(id)
         }
@@ -59,5 +57,5 @@ class PatientViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             repository.getPrice(price)
         }
-    }
+    }*/
 }

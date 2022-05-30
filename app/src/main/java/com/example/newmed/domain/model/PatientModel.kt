@@ -26,16 +26,5 @@ class PatientModel (
     val ishemiya: Boolean,
     val arrhytmia: Boolean,
     val gemma: Boolean,
-    val cirrhosis: Boolean/*,
-    val magnia: Double,
-    val ringera: Double,
-    val galoperidol: Double,
-    val dimedrol: Double,
-    val fenibut: Double,
-    val tiamin: Double,
-    val unitiol: Double,
-    val sonnat: Double,
-    val karbazipin: Double,
-    val normogidron: Double,
-    val anaprilin: Double*/
+    val cirrhosis: Boolean
 ): Parcelable

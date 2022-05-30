@@ -19,7 +19,7 @@
     <string name="money">BYN</string>
     <string name="alcohol">Синдром отмены от алкоголя</string>
     <string name="sex">пол:</string>
-    <string name="diseases">Сопутствующие заболевания</string>
+    <string name="diseases">Сопутствующие заболевания:</string>
     <string name="btn_add_medicamentatons">Пополнить</string>
     <string name="cmt">Черепно-мозговая травма</string>
     <string name="sd">Сахарный диабет</string>
@@ -64,4 +64,7 @@
     <string name="day">день</string>
     <string name="night">ночь</string>
     <string name="infVyz">Информация о вызове</string>
+    <string name="distance">Расстояние</string>
+    <string name="hour">Часы</string>
+    <string name="min">Минуты</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.newmed.presentation.adapter
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,17 +11,18 @@ import com.example.newmed.R
 import com.example.newmed.databinding.ItemPriceBinding
 import com.example.newmed.domain.model.PatientModel
 import kotlinx.android.synthetic.main.item_price.view.*
+import org.koin.core.parameter.parametersOf
 
 class PriceListAdapter(
     private val clickListener: PriceListener
 ) : ListAdapter<PatientModel, PriceListAdapter.PriceHolder>(PriceDiffCallback()) {
+
 
     class PriceHolder(private val binding: ItemPriceBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         //связываются данные и берутся откуда ввели, чтоб вставить куда надо
         fun bind(patientModel: PatientModel, clickListener: PriceListener) {
-            val price = patientModel.pricePatient
             binding.apply {
                 tvNum.text = (position + 1).toString()
                 tvData.text = patientModel.date
@@ -31,7 +33,7 @@ class PriceListAdapter(
                     tvActive.text = ""
 
                 tvNameCall.text = patientModel.nameCall
-                tvPrice.text = price.toString()
+                tvPrice.text = patientModel.pricePatient.toString()
 
                 if (patientModel.dayNight) {
                     imgDay.setImageResource(R.drawable.ic_night)
@@ -44,15 +46,18 @@ class PriceListAdapter(
                 tvTime.text = patientModel.time.toString()
                 tvMin.text = patientModel.min.toString()
 
-              /*  val pr = patientModel.pricePatient
-                var sum = 0
-                for (i in pr .. pr) {
-                    sum += i
+               //val arrayPrice = arrayOf(patientModel.pricePatient)
+
+                //val arrayPrice: LiveData<List<PatientModel>>
+               // var sum = 0
+                //for (i in arrayPrice.indices){
+                   // println(arrayPrice.sum())
+                    /*sum += i
+                    println("i = $i, value = ${arrayPrice[i]}")
+                    println("sum = $sum")*/
                 }
-                binding.tvDistance.text = sum.toString()*/
             }
         }
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PriceHolder {
         val binding = ItemPriceBinding.inflate(LayoutInflater.from(parent.context), parent, false)

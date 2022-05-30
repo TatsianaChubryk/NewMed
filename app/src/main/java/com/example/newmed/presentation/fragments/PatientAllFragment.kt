@@ -54,7 +54,7 @@ class PatientAllFragment : Fragment() {
 
             activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.frame, InfoooPatientFragment.newInstance(patientId = it.id))
+                ?.replace(R.id.frame, InfoPatientFragment.newInstance(patientId = it.id))
                 ?.commit()
         }, object : DeleteByIdInterface {
             override fun patientDeleteClick(id: Int) {
@@ -62,14 +62,7 @@ class PatientAllFragment : Fragment() {
             }
         }, CallInterface {
             callPatient(it)
-        }
-        )/*, object : CallInterface {
-            override fun callInterface(id: Int) {
-                //patientViewModel.callPatient(id)
-                callPatient()
-            }
-
-        })*/
+        })
 
         binding.patientRecyclerView.adapter = adapter
 
@@ -95,19 +88,10 @@ class PatientAllFragment : Fragment() {
     }
 
     private fun callPatient(number: String) {
-        //patientViewModel.getPatientById(arguments?.getInt("patientId") ?: 0)
-        //val phoneNumber = tvNumberCall.text.toString()
-       // if (phoneNumber.isNotEmpty()) {
-            val callIntent = Intent(Intent.ACTION_CALL)
-            callIntent.data = Uri.parse("tel:$number")
-            startActivity(callIntent)
-        //}
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:$number")
+        startActivity(callIntent)
     }
-
-   /* override fun callInterface(id: Int) {
-       patientViewModel.callPatient(id)
-        callPatient()
-    }*/
 
     override fun onDestroy() {
         super.onDestroy()

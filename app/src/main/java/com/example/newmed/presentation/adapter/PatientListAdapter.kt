@@ -1,7 +1,5 @@
 package com.example.newmed.presentation.adapter
 
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.domain.model.PatientModel
 import com.example.newmed.databinding.ItemPatientBinding
 import com.example.newmed.presentation.interfaces.DeleteByIdInterface
-import kotlin.coroutines.coroutineContext
 
 class PatientListAdapter(
     private val clickListener: PatientListener,

@@ -25,15 +25,10 @@ class InfoPatientFragment : Fragment() {
 
     private lateinit var binding: FragmentInfoPatientBinding
 
-    var running = false
-
-    /*private val patientViewModel: PatientViewModel by viewModels {
-        PatientViewModelFactory((activity?.application as PatientApplication).repository)
-    }*/
-
     private val patientViewModel: PatientViewModel by viewModels {
         PatientViewModelFactory(
-            ((requireActivity().application) as PatientApplication).repository)/*,
+            ((requireActivity().application) as PatientApplication).repository
+        )/*,
             ((requireActivity().application) as PatientApplication).deleteById
         )*/
     }
@@ -70,47 +65,34 @@ class InfoPatientFragment : Fragment() {
         getPatient()
         isCheckedSwitch()
 
-        binding.btnEditPatient.setOnClickListener { updatePatient() }
-        binding.textNC.setOnClickListener { callPatient() }
+        binding.saveButton.setOnClickListener { updatePatient() }
+        binding.imgNumberCall.setOnClickListener { callPerson() }
+        binding.imgNumber.setOnClickListener { callPatient() }
         checkPermission()
     }
 
     private fun checkPermission() {
-        if (ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.CALL_PHONE), 101)
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.CALL_PHONE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(android.Manifest.permission.CALL_PHONE),
+                101
+            )
         }
     }
-
 
     private fun getPatient() {
         patientViewModel.patient.observe(viewLifecycleOwner) {
             binding.tvData.setText(it.date)
             binding.switchActive.isChecked = it.active
-            binding.tvNameCall.text = it.nameCall
-            binding.tvNumberCall.text = it.numberCall
-            binding.tvAddress.text = it.addressPatient
-            binding.namePatient.text = Editable.Factory.getInstance().newEditable(it.namePatient)
-            binding.numberPatient.text =
-                Editable.Factory.getInstance().newEditable(it.numberPatient)
-            binding.tvAgePatient.text = Editable.Factory.getInstance().newEditable(it.agePatient)
-
-            if (it.alko) {
-                binding.tvDiagnosis.text = "Синдром отмены от алкоголя"
-            } else
-                binding.tvDiagnosis.text = "Синдром отмены от наркотических средств"
-
-            binding.cbTraumaticBrain.isChecked = it.traumaticBrain
-            binding.cbDiabetes.isChecked = it.diabetes
-            binding.cbHypertension.isChecked = it.hypertension
-            binding.cbIschemia.isChecked = it.ishemiya
-            binding.cbArrhythmia.isChecked = it.arrhytmia
-            binding.cbGemma.isChecked = it.gemma
-            binding.cbCirrhosis.isChecked = it.cirrhosis
-            binding.etDistance.text =
-                Editable.Factory.getInstance().newEditable(it.distance.toString())
-            binding.etTime.text = Editable.Factory.getInstance().newEditable(it.time.toString())
-            binding.etMin.text = Editable.Factory.getInstance().newEditable(it.min.toString())
-            binding.etPrice.text =
+            binding.etNameCall.editText?.setText(it.nameCall)
+            binding.etNumberCall.editText?.setText(it.numberCall)
+            binding.etAddress.editText?.setText(it.addressPatient)
+            binding.etPrice.editText?.text =
                 Editable.Factory.getInstance().newEditable(it.pricePatient.toString())
             if (it.dayNight) {
                 binding.switchDayNight.isChecked = true
@@ -121,23 +103,36 @@ class InfoPatientFragment : Fragment() {
                 binding.imgDay.isVisible = true
                 binding.imgNight.isVisible = false
             }
+            binding.etDistance.editText?.setText(it.distance.toString())
+            binding.etHour.editText?.setText(it.time.toString())
+            binding.etMin.editText?.setText(it.min.toString())
+            binding.etNamePatient.editText?.setText(it.namePatient)
+            binding.etNumberPatient.editText?.setText(it.numberPatient)
+            binding.etAgePatient.editText?.setText(it.agePatient)
+            binding.cbTraumaticBrain.isChecked = it.traumaticBrain
+            binding.cbDiabetes.isChecked = it.diabetes
+            binding.cbHypertension.isChecked = it.hypertension
+            binding.cbIschemia.isChecked = it.ishemiya
+            binding.cbArrhythmia.isChecked = it.arrhytmia
+            binding.cbGemma.isChecked = it.gemma
+            binding.cbCirrhosis.isChecked = it.cirrhosis
         }
     }
 
     private fun updatePatient() {
         val data = binding.tvData.text.toString()
         val active = binding.switchActive.isChecked
-        val nameCall = binding.tvNameCall.text.toString()
-        val numberCall = binding.tvNumberCall.text.toString()
-        val addressPatient = binding.tvAddress.text.toString()
-        val namePatient = binding.namePatient.text.toString()
-        val agePatient = binding.tvAgePatient.text.toString()
-        val numberPatient = binding.numberPatient.text.toString()
-        val pricePatient = binding.etPrice.text.toString().toInt()
+        val nameCall = binding.etNameCall.editText?.text.toString()
+        val numberCall = binding.etNumberCall.editText?.text.toString()
+        val addressPatient = binding.etAddress.editText?.text.toString()
+        val namePatient = binding.etNamePatient.editText?.text.toString()
+        val agePatient = binding.etAgePatient.editText?.text.toString()
+        val numberPatient = binding.etNumberPatient.editText?.text.toString()
+        val pricePatient = binding.etPrice.editText?.text.toString().toInt()
         val dayNight = binding.switchDayNight.isChecked
-        val distance = binding.etDistance.text.toString().toInt()
-        val time = binding.etTime.text.toString().toInt()
-        val min = binding.etMin.text.toString().toInt()
+        val distance = binding.etDistance.editText?.text.toString().toInt()
+        val time = binding.etHour.editText?.text.toString().toInt()
+        val min = binding.etMin.editText?.text.toString().toInt()
         val cbBrain = binding.cbTraumaticBrain.isChecked
         val cbDiabetes = binding.cbDiabetes.isChecked
         val cbHypertension = binding.cbHypertension.isChecked
@@ -175,15 +170,6 @@ class InfoPatientFragment : Fragment() {
     }
 
     private fun isCheckedSwitch() {
-
-        binding.switchVyzov.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                binding.line7.isVisible = true
-            } else if (!isChecked) {
-                binding.line7.isVisible = false
-            }
-        }
-
         binding.switchDayNight.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.imgDay.isVisible = false
@@ -196,7 +182,7 @@ class InfoPatientFragment : Fragment() {
     }
 
     private fun callPatient() {
-        val phoneNumber = numberPatient.text.toString()
+        val phoneNumber = binding.etNumberPatient.editText?.text.toString()
         if (phoneNumber.isNotEmpty()) {
             val callIntent = Intent(Intent.ACTION_CALL)
             callIntent.data = Uri.parse("tel:$phoneNumber")
@@ -204,14 +190,17 @@ class InfoPatientFragment : Fragment() {
         }
     }
 
-    /*override fun onDestroy() {
+    private fun callPerson() {
+        val phoneNumber = binding.etNumberCall.editText?.text.toString()
+        if (phoneNumber.isNotEmpty()) {
+            val callIntent = Intent(Intent.ACTION_CALL)
+            callIntent.data = Uri.parse("tel:$phoneNumber")
+            startActivity(callIntent)
+        }
+    }
+
+    override fun onDestroy() {
         super.onDestroy()
         binding
-    }*/
-
-    /*override fun onBackPressed(): Boolean {
-
-            return true
-
-    }*/
+    }
 }

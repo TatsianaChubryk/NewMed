@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newmed.PatientApplication
@@ -14,7 +15,9 @@ import com.example.newmed.presentation.adapter.PriceListener
 import com.example.newmed.databinding.FragmentPriceBinding
 import com.example.newmed.presentation.viewmodel.PatientViewModel
 import com.example.newmed.data.reposotiry.PatientViewModelFactory
+import com.example.newmed.domain.model.PatientModel
 import com.example.newmed.presentation.SwipeToDelete
+import kotlinx.android.synthetic.main.item_price.view.*
 
 class PriceFragment : Fragment() {
 
