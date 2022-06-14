@@ -65,7 +65,6 @@ class PriceListAdapter(
         return sum
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PriceHolder {
         val binding = ItemPriceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PriceHolder(binding)
